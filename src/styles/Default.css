@@ -1,0 +1,122 @@
+html {
+  font-size: 16px;
+  font-family: Helvetica;
+}
+
+#background {
+  height: 100%;
+  width: 100%;
+  min-width: 960px;
+  min-height: 580px;
+  background: linear-gradient(90deg, #0c0c0c 21px, transparent 1%) center, linear-gradient(#0c0c0c 21px, transparent 1%) center, #75a1ff;
+  background-size: 22px 22px;
+}
+
+.button {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #75a1ff;
+  border-color: #75a1ff;
+  border-radius: 1rem;
+  background-color: #0c0c0c;
+  border-style: solid;
+}
+
+.button:hover {
+  color: #a7c3ff;
+  border-color: #a7c3ff;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  -webkit-box-shadow: 0 0 1rem #1761ff;
+          box-shadow: 0 0 1rem #1761ff;
+}
+
+.inputForm {
+  margin: 1rem;
+  font-family: Helvetica;
+  font-size: 1rem;
+  background-color: #0c0c0c;
+  border-color: #575757;
+  border-style: solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: #a8a8a8;
+}
+
+.inputForm:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 1rem #75a1ff;
+          box-shadow: 0 0 1rem #75a1ff;
+}
+
+.inputForm::-webkit-input-placeholder {
+  -webkit-user-select: none;
+          user-select: none;
+  text-align: center;
+}
+
+.inputForm:-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+  text-align: center;
+}
+
+.inputForm::-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+  text-align: center;
+}
+
+.inputForm::placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+}
+
+.singleElementBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 1rem;
+}
+
+.singleRowContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 100%;
+  width: 100%;
+}
+/*# sourceMappingURL=Default.css.map */

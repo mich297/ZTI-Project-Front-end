@@ -1,0 +1,22 @@
+
+$text-color: #75a1ff;
+$text-shadow: #a7c3ff;
+$text-lighter-shadow: #cbd6f0;
+$background: #0c0c0c;
+$darker-bg:#070707;
+$menu-hover: #1a1a1a;
+$shadow: 1rem 1rem 1rem black;
+
+@mixin flexbox($direction, $justify: center, $alignitems: center, $aligncontent: center, $disp: flex, ){
+	display: $disp;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $alignitems;
+	align-content: $aligncontent;
+}
+
+// @keyframes poplabel {
+//     0% { transform: translateZ(0)}
+//     50% {transform: translateZ(1.1rem)}
+//     100% {transform: translateZ(1.2rem)}
+// }

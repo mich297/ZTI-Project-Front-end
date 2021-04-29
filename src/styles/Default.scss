@@ -1,0 +1,82 @@
+@import 'mixins';
+// Dot pattern
+$bg-color: $background;
+$dot-color: $text-color;
+
+$dot-size: 1px;
+$dot-space: 22px;
+
+html{
+	font-size: 16px;
+	font-family: Helvetica;
+}
+
+#background {
+    height: 100%;
+    width: 100%;
+	min-width: 960px;
+	min-height: 580px;
+	background:
+		linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+		linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+		$dot-color;
+	background-size: $dot-space $dot-space;
+}
+
+.button {
+	padding: 1rem;
+	font-size: 1rem;
+	color: #75a1ff;
+	border-color: #75a1ff;
+	border-radius: 1rem;
+	background-color: #0c0c0c;
+	border-style: solid;
+
+	&:hover {
+		color: #a7c3ff;
+		border-color: #a7c3ff;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		box-shadow: 0 0 1rem#1761ff;
+	}
+}
+
+.inputForm {
+	margin: 1rem;
+	font-family: Helvetica;
+	font-size: 1rem;
+	background-color: #0c0c0c;
+	border-color: rgb(87, 87, 87);
+	border-style: solid;
+	padding: 1rem;
+	border-radius: 1rem;
+	text-align: center;
+	color: rgb(168, 168, 168);
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 1rem#75a1ff;
+	}
+
+	&::placeholder {
+		user-select: none;
+		text-align: center;
+	}
+
+}
+
+.singleElementBox {
+	@include flexbox(row);
+	padding: 1rem;
+}
+
+.singleRowContainer{
+	@include flexbox(row);
+	height: 100%;
+	width: 100%;
+}

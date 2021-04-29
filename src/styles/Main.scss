@@ -1,0 +1,98 @@
+@import 'mixins';
+
+.menuGrid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+
+    .title{
+        @include flexbox(row);
+        grid-column: 1 / span 12;
+        grid-row: 1 / span 2;
+        background-color: $background;
+    }
+
+    .sectionHeader {
+        margin: 0px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        
+        p {
+            margin: 0px;
+        }  
+
+        &:nth-of-type(1) {
+            grid-column: 12 / 14;
+            grid-row: 4 / span 2;
+        }
+
+        &:nth-of-type(2) {
+            grid-column: 12 / 14;
+            grid-row: 11 / span 2;
+        }
+
+    }
+
+    .menuTile {
+        height: 100%;
+        width: 100%;
+        background-color: #0c0c0c;
+        border-radius: 10px;
+        border: 2px solid #75a1ff;
+        color: #75a1ff;
+    }
+
+    a:nth-of-type(1) {
+        grid-column: 3 / span 4;
+        grid-row: 7 / 10;
+    }
+
+    a:nth-of-type(2) {
+        grid-column: 8 / span 4;
+        grid-row: 7 / 10;
+    }
+
+    a:nth-of-type(3) {
+        grid-column: 14 / span 4;
+        grid-row: 7 / 10;
+    }
+
+    a:nth-of-type(4) {
+        grid-column: 19 / span 4;
+        grid-row: 7 / 10;
+    }
+
+    button {
+        padding: 10px;
+        font: 25px Helvetica;
+        color: #75a1ff;
+        border-color: #75a1ff;
+        border-radius: 10px;
+        background-color: #0c0c0c;
+        border-style: solid;
+
+    }
+
+    button:hover {
+        color: #a7c3ff;
+        border-color: #a7c3ff;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button:active {
+        box-shadow: 0 0 10px#1761ff;
+    }
+
+    h1 {
+        color: #75a1ff;
+        text-shadow: 0 0 4px #a7c3ff;
+
+    }
+}

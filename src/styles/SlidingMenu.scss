@@ -1,0 +1,141 @@
+@import 'mixins';
+
+.menu {
+
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column: 1 / span 12;
+    grid-row: 3 / span 1;
+    background-color: $darker-bg;
+    color: #75a1ff;
+    text-shadow: 2px 2px 4px $text-shadow;
+    font-size: larger;
+
+    .singleElementBox{
+        grid-column: 1;
+        grid-row: 1;
+        
+
+        svg[class*="icon"]{
+            height: 2rem;
+            width: 2rem;
+            fill: $text-color;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+
+            &:hover{
+                fill: $text-shadow;
+            }
+        }
+
+        .iconClicked{
+            transform: rotate(0.25turn);
+        }
+
+        div{
+            @include flexbox(row);
+            cursor: pointer;
+            user-select: none;
+            p{
+                margin: 0px;
+                margin-left: 10px;
+            }
+
+            &:hover{
+                color: $text-shadow;
+            }
+        }
+    }
+
+    .singleElementBox:nth-child(2){
+        grid-column: 11;
+        grid-row: 1;
+    }
+
+    .singleRowContainer{
+        @include flexbox(row, space-around);
+        grid-column: 2 / span 11;
+        grid-row:1;
+
+        .optionTile{
+            @include flexbox(row);
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+        }
+    }
+}
+
+.sliderContainer{
+    
+    grid-column: 1 / span 12;
+    grid-row:4;
+    z-index: 2;
+
+    .singleRowContainer{
+        @include flexbox(row, space-around);
+        
+        grid-column: 2 / span 11;
+        grid-row:1;
+
+        .optionTile{
+            @include flexbox(row);
+            height: inherit;
+            box-sizing: border-box;
+            width: inherit;
+        }
+    }
+
+    div[id*="slide"]{
+        overflow: hidden;
+        position: absolute;
+        background-color: $darker-bg;
+        transition: all 0.4s ease-in-out;
+        width: 100%;
+
+        display: grid;
+        // grid-template-rows: 1;
+        grid-template-columns: repeat(12, 1fr);
+        background-color: $darker-bg;
+        color: #75a1ff;
+        text-shadow: 2px 2px 4px $text-shadow;
+        font-size: larger;
+        height: inherit;
+    }
+
+    #slide-off{
+        height: 0px;
+    }
+    
+    #slide-on{
+        height: 300px;
+    }
+    
+}
+
+
+// #slideNav {
+//     display: grid;
+//     grid-template-rows: 1;
+//     grid-template-columns: repeat(12, 1fr);
+//     background-color: $darker-bg;
+//     color: #75a1ff;
+//     text-shadow: 2px 2px 4px $text-shadow;
+//     font-size: larger;
+//     height: inherit;
+
+//     .singleRowContainer{
+//         @include flexbox(row, space-around);
+        
+//         grid-column: 2 / span 11;
+//         grid-row:1;
+
+//         .optionTile{
+//             @include flexbox(row);
+//             height: inherit;
+//             box-sizing: border-box;
+//             width: inherit;
+//         }
+//     }
+// }

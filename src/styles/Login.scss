@@ -1,0 +1,150 @@
+@import 'mixins';
+
+#loginContainer {
+    height: 100%;
+    width: 100%; 
+    @include flexbox(row);
+    flex-wrap: nowrap;
+
+    .loginRegisterForm {
+        height: fit-content;
+        width: fit-content;
+        padding: 2rem;
+        @include flexbox(column);
+        flex-wrap: nowrap;
+
+        background-color: #0c0c0c;
+        margin: 20px;
+        box-shadow: 10px 10px 10px black;
+
+        #loginForm {
+            @include flexbox(column);
+            height: 600px;
+            width: 100%;
+
+            .inputForm{
+                margin: 1rem;
+                transition: box-shadow 0.3s ease-in-out;
+            }
+
+            .button{
+                margin: 1rem;
+                transition: box-shadow 0.1s ease-in-out;
+            }
+
+            label {
+                visibility: hidden;
+                color: $text-color;
+                text-shadow: 2px 2px 4px $text-shadow;
+                height: 1rem;
+                width: 15rem;
+                align-content: center;
+                text-align: center;
+                margin: 0.5rem;
+                margin-bottom: 2rem;
+                transition: font-size 0.3s ease-in-out;
+            }
+
+            .warningLabel{
+                visibility: visible;
+            }
+
+            .red{
+                visibility: visible;
+            }
+
+            .green{
+                visibility: visible;
+            }
+
+            .progressLabel{
+                visibility: visible;
+            }
+
+            @keyframes poplabel {
+                0% { font-size: 16px;}
+                50% {font-size: 20px;}
+                100% {font-size: 16px;}
+            }
+
+            label.label-anim{
+                visibility: visible;
+                // animation: poplabel .3s ease-in-out;
+                font-size: 20px;
+            }
+            label.label-noanim{
+                visibility: visible;
+                font-size: 16px;
+            }
+
+        }
+
+        // .checkContainer {
+        //     display: inline;
+        //     width: fit-content;
+        //     height: fit-content;
+        //     color: rgb(87, 87, 87);
+        //     margin: 10px;
+        // }
+
+        h1 {
+            color: #75a1ff;
+            text-shadow: 2px 2px 4px $text-shadow;
+        }
+    }
+
+    
+}
+
+.redWarning {
+    color: red;
+    font-size: small;
+}
+
+.greenWarning {
+    color: #a7f5ff;
+    font-size: small;
+}
+
+#progressBar {
+    height: 10px;
+    width: 80%;
+}
+
+.lowBar {
+    background-color: red;
+}
+
+.mediumBar {
+    background-color: orange;
+}
+
+.strongBar {
+    background-color: green;
+}
+
+.progressLabel {
+    color: #a7f5ff;
+    font-size: small;
+
+    mark {
+        background-color: transparent;
+        font-size: bold;
+    }
+
+    .low {
+        color: red;
+    }
+
+    .medium {
+        color: orange;
+    }
+
+    .strong {
+        color: green;
+    }
+
+    .none {
+        color: honeydew;
+    }
+}
