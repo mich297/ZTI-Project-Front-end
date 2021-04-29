@@ -7,7 +7,7 @@ import '../../styles/Main.css';
 import '../../styles/SlidingMenu.css';
 import Slider from './Slider.js';
 
-const SlidingMenu = ()=>{
+const SlidingMenu = (props)=>{
     const [iconStyle, setIconStyle] = useState("icon");
     const [slider, setSlider] = useState("slide-off");
     let history = useHistory();
@@ -39,7 +39,7 @@ const SlidingMenu = ()=>{
             </nav>
             <div className="sliderContainer">
                 <div id={slider}>
-                    <Slider/>
+                    <Slider viewChange={props.viewChange} />
                 </div>
             </div>
         </>

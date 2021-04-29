@@ -14,7 +14,13 @@ import SlidingMenu from './SlidingMenuComponents/SlidingMenu';
 
 const Main = ()=>{
     const [iconStyle, setIconStyle] = useState("icon");
-
+    const permissions =useState(localStorage.getItem("permissions"));
+    const [content, setContent] = useState("upcoming");
+    
+    let visibleContent = content === "signed" ? (<SignedConferences/>) :
+    content === "settings" ? (<Profile/>) :
+    content === "all" ? (<AllConferences/>) :
+    content === "manage" ? (<ManageConference/>) : (<Upcoming/>);
 
     return (
         <div className="menuGrid">
@@ -23,8 +29,8 @@ const Main = ()=>{
                     <h1>Conference App</h1>
                 </div>
             </div>
-            <SlidingMenu/>
-            <Upcoming/>
+            <SlidingMenu viewChange={(contentOption)=>setContent(contentOption)} />
+            {visibleContent}
         </div>
     );
 }
