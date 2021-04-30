@@ -1,15 +1,11 @@
 import React, { useRef, useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
-import SettingsIcon from '@material-ui/icons/Settings';
-import BookmarksIcon from '@material-ui/icons/Bookmarks';
-import MenuIcon from '@material-ui/icons/Menu';
-import AddBoxIcon from '@material-ui/icons/AddBox';
-import SearchIcon from '@material-ui/icons/Search';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import '../styles/Default.css';
 import '../styles/Main.css';
-import InputText from './InputText.js';
-import Upcoming from './ContentViewComponents/Upcoming.js';
+import SignedConferences from './ViewComponents/SignedConferences';
+import Upcoming from './ViewComponents/Upcoming';
+import Profile from './ViewComponents/Profile';
+import AllConferences from './ViewComponents/AllConferences';
+import ManageConference from './ViewComponents/ManageConference';
 import SlidingMenu from './SlidingMenuComponents/SlidingMenu';
 
 const Main = ()=>{

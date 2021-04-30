@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EventIcon from '@material-ui/icons/Event';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import '../styles/Default.css';
-import '../styles/Upcoming.css';
+import '../../styles/Default.css';
+import '../../styles/Upcoming.css';
 
 
 

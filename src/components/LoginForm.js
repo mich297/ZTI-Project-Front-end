@@ -56,7 +56,7 @@ const LoginForm = (props) => {
         }
         else {
             localStorage.setItem('user', username);
-            localStorage.setItem('permissions', admin)
+            localStorage.setItem('permissions', "admin")
             props.login(userId);
         }
         

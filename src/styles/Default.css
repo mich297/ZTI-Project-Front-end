@@ -8,17 +8,17 @@ html {
   width: 100%;
   min-width: 960px;
   min-height: 580px;
-  background: linear-gradient(90deg, #0c0c0c 21px, transparent 1%) center, linear-gradient(#0c0c0c 21px, transparent 1%) center, #75a1ff;
+  background: linear-gradient(90deg, #180724 21px, transparent 1%) center, linear-gradient(#180724 21px, transparent 1%) center, #BFBAEE;
   background-size: 22px 22px;
 }
 
 .button {
   padding: 1rem;
   font-size: 1rem;
-  color: #75a1ff;
-  border-color: #75a1ff;
+  color: #A031EB;
+  border-color: #7E27B8;
   border-radius: 1rem;
-  background-color: #0c0c0c;
+  background-color: #07020a;
   border-style: solid;
 }
 
