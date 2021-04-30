@@ -18,25 +18,25 @@ const Slider =(props)=>{
     return(
         <div className={"singleRowContainer"}>
             <div className={"optionTile"}>
-                <div className="optionCircle" onClick={props.viewChange("signed")}>
+                <div className="optionCircle" onClick={()=>props.viewChange("signed")}>
                     <BookmarksIcon className="icon"/>
                     <p>Your conferences</p>
                 </div>
             </div>
             <div className={"optionTile"}>
-                <div className="optionCircle" onClick={props.viewChange("manage")}>
+                <div className="optionCircle" onClick={()=>props.viewChange("manage")}>
                     <AddBoxIcon className="icon"/>
                     <p>Manage conferences</p>
                 </div>
             </div>
             <div className={"optionTile"}>
-                <div className="optionCircle" onClick={props.viewChange("all")}>
+                <div className="optionCircle" onClick={()=>props.viewChange("all")}>
                     <SearchIcon className="icon"/>
                     <p>Find conference</p>
                 </div>
             </div>
             <div className={"optionTile"}>
-                <div className="optionCircle" onClick={props.viewChange("settings")}>
+                <div className="optionCircle" onClick={()=>props.viewChange("settings")}>
                     <SettingsIcon className="icon"/>
                     <p>Settings</p>
                 </div>

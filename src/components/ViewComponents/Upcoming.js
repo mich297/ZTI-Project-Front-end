@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import '../styles/Default.css';
-import '../styles/Upcoming.css';
+import '../../styles/Default.css';
+import '../../styles/Upcoming.css';
 import Calendar from './Calendar.js';
 
 

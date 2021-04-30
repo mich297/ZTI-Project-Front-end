@@ -1,7 +1,7 @@
 @import 'mixins';
 // Dot pattern
-$bg-color: $background;
-$dot-color: $text-color;
+$bg-color: $background-color-darker;
+$dot-color: $light-shadow;
 
 $dot-size: 1px;
 $dot-space: 22px;
@@ -26,14 +26,14 @@ html{
 .button {
 	padding: 1rem;
 	font-size: 1rem;
-	color: #75a1ff;
-	border-color: #75a1ff;
+	color: $text-color;
+	border-color: $border-color;
 	border-radius: 1rem;
-	background-color: #0c0c0c;
+	background-color: $background-color-darkest;
 	border-style: solid;
 
 	&:hover {
-		color: #a7c3ff;
+		color: $text-color-;
 		border-color: #a7c3ff;
 	}
 

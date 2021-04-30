@@ -1,11 +1,25 @@
+$text-color: #A031EB;
+$text-shadow: #c183eb;
+$text-lighter-shadow: #d9c2e9;
 
-$text-color: #75a1ff;
-$text-shadow: #a7c3ff;
-$text-lighter-shadow: #cbd6f0;
-$background: #0c0c0c;
-$darker-bg:#070707;
-$menu-hover: #1a1a1a;
-$shadow: 1rem 1rem 1rem black;
+$background-color: #49166B;
+$background-color-dark: #2A0D3D;
+$background-color-darker: #180724;
+$background-color-darkest: #0e0414;
+
+$basic-shadow: 1rem 1rem 1rem black;
+
+$secondary-background: #56376B;
+$secondary-background-dark: #382446;
+$secondary-background-darker: #1d1324;
+
+$border-color: #7E27B8;
+$border-shadow: #3c1357;
+$border-light: #ad41f5;
+
+$light-shadow: #BFBAEE;
+$light-shadow-bright: #cecaee;
+$light-shadow-brighter: #e7e6ee;
 
 @mixin flexbox($direction, $justify: center, $alignitems: center, $aligncontent: center, $disp: flex, ){
 	display: $disp;
@@ -14,9 +28,3 @@ $shadow: 1rem 1rem 1rem black;
 	align-items: $alignitems;
 	align-content: $aligncontent;
 }
-
-// @keyframes poplabel {
-//     0% { transform: translateZ(0)}
-//     50% {transform: translateZ(1.1rem)}
-//     100% {transform: translateZ(1.2rem)}
-// }
