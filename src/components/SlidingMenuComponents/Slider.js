@@ -12,7 +12,7 @@ import '../../styles/Slider.css';
 
 const Slider =(props)=>{
     let history = useHistory();
-
+    
 
 
     return(

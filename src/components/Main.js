@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import '../styles/Default.css';
 import '../styles/Main.css';
 import InputText from './InputText.js';
-import Upcoming from './Upcoming.js';
+import Upcoming from './ContentViewComponents/Upcoming.js';
 import SlidingMenu from './SlidingMenuComponents/SlidingMenu';
 
 const Main = ()=>{
