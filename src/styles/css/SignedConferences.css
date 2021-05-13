@@ -1,0 +1,237 @@
+#signedConferences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  overflow: hidden;
+  overflow-y: auto;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1 / span 12;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 10;
+  grid-row: 4 / span 10;
+  background-color: #0a0a0a;
+}
+
+#signedConferences::-webkit-scrollbar {
+  display: none;
+}
+
+#signedConferences #titleDiv {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border-bottom: 2px solid #c00433;
+  border-top: 2px solid #c00433;
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 1rem #c00433);
+          filter: drop-shadow(0 0 1rem #c00433);
+}
+
+#signedConferences .singleRowContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#signedConferences .singleRowContainer > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  background-color: black;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) p {
+  font-weight: bolder;
+  text-align: center;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) p:nth-child(1) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / span 3;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) p:nth-child(2) {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
+  grid-column: 6 / span 3;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  fill: #3500D3;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg:nth-of-type(1) {
+  -ms-grid-column: 5;
+  grid-column: 5;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg:nth-of-type(2) {
+  -ms-grid-column: 10;
+  grid-column: 10;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg:nth-of-type(3) {
+  height: 2rem;
+  width: 2rem;
+  -ms-grid-column: 19;
+  grid-column: 19;
+  cursor: pointer;
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg:nth-of-type(3):hover {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 2rem #c00433);
+          filter: drop-shadow(0 0 2rem #c00433);
+}
+
+#signedConferences .singleRowContainer > div:nth-child(1) svg:nth-of-type(3):active {
+  color: #ebb8ff;
+  fill: #ebb8ff;
+  -webkit-filter: drop-shadow(0 0 3rem #ff0062);
+          filter: drop-shadow(0 0 3rem #ff0062);
+}
+
+#signedConferences .singleRowContainer > div:nth-child(2) {
+  background-color: #0a0a0a;
+  height: 200px;
+}
+
+#signedConferences [class*=conferenceDisp-] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  overflow: hidden;
+}
+
+.slideContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  margin: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  align-content: center;
+  background-color: #352b3d;
+}
+
+.slideContent h3 {
+  text-align: center;
+  padding: 2rem;
+}
+
+.slideContent p {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2rem;
+  padding-top: 3rem;
+  margin-left: 4rem;
+}
+
+.slideContent button {
+  margin: 1rem;
+}
+/*# sourceMappingURL=SignedConferences.css.map */

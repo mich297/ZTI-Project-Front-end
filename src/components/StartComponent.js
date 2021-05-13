@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link, withRouter} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Login from './Login.js';
 import Main from './Main.js';
+import RegisterForm from './RegisterForm.js';
 
 class StartComponent extends React.Component {
     
@@ -12,6 +12,9 @@ class StartComponent extends React.Component {
                 <BrowserRouter>
                     <Route exact path="/">
                         <Login/>
+                    </Route>
+                    <Route exact path="/register">
+                        <RegisterForm/>
                     </Route>
                     <Route exact path="/main">
                         <Main/>

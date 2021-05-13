@@ -1,0 +1,292 @@
+#loginContainer {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+#loginContainer .loginRegisterForm {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: #080808;
+  margin: 20px;
+  -webkit-box-shadow: 10px 10px 10px black;
+          box-shadow: 10px 10px 10px black;
+}
+
+#loginContainer .loginRegisterForm #loginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+
+#loginContainer .loginRegisterForm #loginForm .inputForm {
+  margin: 1rem;
+}
+
+#loginContainer .loginRegisterForm #loginForm .button {
+  margin: 1rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#loginContainer .loginRegisterForm #loginForm label {
+  visibility: hidden;
+  color: #3500D3;
+  text-shadow: 2px 2px 4px #3500D3;
+  height: 1rem;
+  width: 15rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  margin: 0.5rem;
+  margin-bottom: 2rem;
+  -webkit-transition: font-size 0.3s ease-in-out;
+  transition: font-size 0.3s ease-in-out;
+}
+
+#loginContainer .loginRegisterForm #loginForm .warningLabel {
+  visibility: visible;
+}
+
+@-webkit-keyframes twitch {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 20%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+@keyframes twitch {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 20%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+@-webkit-keyframes twitchB {
+  0% {
+    height: 90%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 90%;
+  }
+}
+
+@keyframes twitchB {
+  0% {
+    height: 90%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 90%;
+  }
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 3rem;
+  width: 100%;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar [class*=colorBar] {
+  width: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar [class*=colorBar]:nth-child(1) {
+  background-color: #c00433;
+  height: 10%;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar [class*=colorBar]:nth-child(2) {
+  background-color: #3500D3;
+  height: 10%;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar [class*=colorBar]:nth-child(3) {
+  background-color: #ff0062;
+  height: 10%;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar .colorBar {
+  -webkit-animation: twitch 0.3s ease-in-out infinite alternate;
+          animation: twitch 0.3s ease-in-out infinite alternate;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressBar .colorBarB {
+  -webkit-animation: twitchB 0.3s ease-in-out infinite alternate;
+          animation: twitchB 0.3s ease-in-out infinite alternate;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel {
+  visibility: visible;
+  color: #3500D3;
+  font-size: small;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel mark {
+  background-color: transparent;
+  font-size: bold;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel .low {
+  color: #c00433;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel .medium {
+  color: #3500D3;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel .strong {
+  color: #ff0062;
+}
+
+#loginContainer .loginRegisterForm #loginForm .progressLabel .none {
+  color: #969696;
+}
+
+@-webkit-keyframes poplabel {
+  0% {
+    font-size: 16px;
+  }
+  50% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 16px;
+  }
+}
+
+@keyframes poplabel {
+  0% {
+    font-size: 16px;
+  }
+  50% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 16px;
+  }
+}
+
+#loginContainer .loginRegisterForm #loginForm label.label-anim {
+  visibility: visible;
+  font-size: 20px;
+}
+
+#loginContainer .loginRegisterForm #loginForm label.label-noanim {
+  visibility: visible;
+  font-size: 16px;
+}
+
+.redWarning {
+  color: red;
+  font-size: small;
+}
+
+.greenWarning {
+  color: #3500D3;
+  font-size: small;
+}
+
+#progressBar {
+  height: 10px;
+  width: 80%;
+}
+
+.lowBar {
+  background-color: red;
+}
+
+.mediumBar {
+  background-color: orange;
+}
+
+.strongBar {
+  background-color: green;
+}
+/*# sourceMappingURL=Login.css.map */

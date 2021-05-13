@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { BrowserRouter, Route, Link, useHistory } from "react-router-dom";
-import '../../styles/Default.css';
-import '../../styles/Main.css';
-import '../../styles/SlidingMenu.css';
+import '../../styles/css/Default.css';
+import '../../styles/css/Main.css';
+import '../../styles/css/SlidingMenu.css';
 import Slider from './Slider.js';
 
 const SlidingMenu = (props)=>{
@@ -21,7 +21,6 @@ const SlidingMenu = (props)=>{
     const handleLogout = ()=>{
         localStorage.removeItem('user');
         history.push('/')
-        
     }
 
     return (
@@ -39,7 +38,7 @@ const SlidingMenu = (props)=>{
             </nav>
             <div className="sliderContainer">
                 <div id={slider}>
-                    <Slider viewChange={props.viewChange} />
+                    <Slider viewChange={props.viewChange} slideBack={()=> slide()}/>
                 </div>
             </div>
         </>

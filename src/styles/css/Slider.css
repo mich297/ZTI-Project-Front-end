@@ -1,0 +1,63 @@
+.optionCircle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: #3500D3;
+  fill: #3500D3;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  border: 5px solid #3500D3;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.optionCircle p {
+  margin: 10px;
+  font-size: 16px;
+  text-shadow: none;
+}
+
+.optionCircle .icon {
+  height: 40px;
+  width: 40px;
+}
+
+.optionCircle:hover {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 20px #c00433);
+          filter: drop-shadow(0 0 20px #c00433);
+  border-color: #906bff;
+  -webkit-box-shadow: 0 0 10px #c00433;
+          box-shadow: 0 0 10px #c00433;
+}
+
+.optionCircle:active {
+  color: #ebb8ff;
+  fill: #ebb8ff;
+  -webkit-filter: drop-shadow(0 0 20px #ff0062);
+          filter: drop-shadow(0 0 20px #ff0062);
+  border-color: #ebb8ff;
+  -webkit-box-shadow: 0 0 20px #ff0062;
+          box-shadow: 0 0 20px #ff0062;
+}
+/*# sourceMappingURL=Slider.css.map */

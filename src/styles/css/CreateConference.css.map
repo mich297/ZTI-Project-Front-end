@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/CreateConference.scss"
+    ],
+    "names": [],
+    "file": "CreateConference.css"
+}

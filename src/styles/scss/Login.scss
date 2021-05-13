@@ -1,0 +1,172 @@
+@import 'mixins';
+
+#loginContainer {
+    height: 100%;
+    width: 100%; 
+    @include flexbox(row);
+    flex-wrap: nowrap;
+
+    .loginRegisterForm {
+        height: fit-content;
+        width: fit-content;
+        padding: 2rem;
+        @include flexbox(column);
+        flex-wrap: nowrap;
+
+        background-color: $color-gray;
+        margin: 20px;
+        box-shadow: 10px 10px 10px black;
+
+        #loginForm {
+            @include flexbox(column);
+            height: fit-content;
+            width: 100%;
+
+            .inputForm{
+                margin: 1rem;
+            }
+
+            .button{
+                margin: 1rem;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+            }
+
+            label {
+                visibility: hidden;
+                color: $color-normal;
+                text-shadow: 2px 2px 4px $color-normal;
+                height: 1rem;
+                width: 15rem;
+                align-content: center;
+                text-align: center;
+                margin: 0.5rem;
+                margin-bottom: 2rem;
+                transition: font-size 0.3s ease-in-out;
+            }
+
+            .warningLabel {
+                visibility: visible;
+            }
+
+            
+            @keyframes twitch {
+                0% {height: 10%;}
+                50% {height: 20%;}
+                100% {height: 10%;}
+            }
+
+            @keyframes twitchB {
+                0% {height: 90%;}
+                50% {height: 100%;}
+                100% {height: 90%;}
+            }
+
+            .progressBar {
+                @include flexbox(row, center,flex-end);
+                height: 3rem;
+                width: 100%;
+                [class*=colorBar]{
+                    width: 100%;
+                    transition: all 0.5s ease-in-out;
+
+                    &:nth-child(1){
+                        background-color: $color-effect;
+                        height: 10%;
+                    }
+    
+                    &:nth-child(2){
+                        background-color: $color-normal;
+                        height: 10%;
+                    }
+    
+                    &:nth-child(3){
+                        background-color: $color-effect-strong;
+                        height: 10%;
+                    }
+                }
+
+
+                .colorBar{
+                    animation: twitch 0.3s ease-in-out infinite alternate;
+                }
+
+                .colorBarB{
+                    animation: twitchB 0.3s ease-in-out infinite alternate;
+                }
+            }
+
+            .progressLabel {
+                visibility: visible;
+                color: $color-normal;
+                font-size: small;
+            
+                mark {
+                    background-color: transparent;
+                    font-size: bold;
+                }
+            
+                .low {
+                    color: $color-effect;
+                }
+            
+                .medium {
+                    color: $color-normal;
+                }
+            
+                .strong {
+                    color: $color-effect-strong;
+                }
+            
+                .none {
+                    color: $color-light-gray;
+                }
+            }
+            
+            @keyframes poplabel {
+                0% { font-size: 16px;}
+                50% {font-size: 20px;}
+                100% {font-size: 16px;}
+            }
+
+            label.label-anim{
+                visibility: visible;
+                font-size: 20px;
+            }
+            label.label-noanim{
+                visibility: visible;
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    
+}
+
+.redWarning {
+    color: red;
+    font-size: small;
+}
+
+.greenWarning {
+    color: $color-normal;
+    font-size: small;
+}
+
+#progressBar {
+    height: 10px;
+    width: 80%;
+}
+
+.lowBar {
+    background-color: red;
+}
+
+.mediumBar {
+    background-color: orange;
+}
+
+.strongBar {
+    background-color: green;
+}

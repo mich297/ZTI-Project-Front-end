@@ -1,0 +1,122 @@
+@import 'mixins';
+
+#signedConferences{
+    @include flexbox(column, flex-start);
+    overflow: hidden;
+    overflow-y: auto;
+    grid-column: 1 / span 12;
+    grid-row: 4 / span 10;
+    background-color: $color-main;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    #titleDiv {
+        width: 100%;
+        height: 100px;
+        background-color: black;
+        @include flexbox(row);
+        border-bottom: 2px solid $color-effect;
+        border-top: 2px solid $color-effect;
+        @include effect-hover(1rem);
+        
+    }
+    .singleRowContainer {
+        @include flexbox(column);
+        height: fit-content;
+
+        & > div{
+            @include flexbox(row);
+            width: 100%;
+            height: 6rem;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+
+            &:nth-child(1){
+                display: grid;
+                grid-template-columns: repeat(20, 1fr);
+                grid-template-rows: 1fr;
+                background-color: black;
+
+                p{
+                    font-weight: bolder;
+                    text-align: center;
+
+                    &:nth-child(1){
+                        grid-column: 1 / span 3;
+                    }
+                    
+                    &:nth-child(2){
+                        grid-column: 6 / span 3;
+                    }
+                
+                }
+
+                svg {
+                    justify-self: center;
+                    fill: $color-normal;
+
+                    &:nth-of-type(1){
+                        grid-column: 5;
+                    }
+
+                    &:nth-of-type(2){
+                        grid-column: 10;
+                    }
+
+                    &:nth-of-type(3){
+                        height: 2rem;
+                        width: 2rem;
+                        grid-column: 19;
+                        cursor: pointer;
+                        &:hover{
+                            @include effect-hover(2rem);
+                        }
+                        &:active{
+                            @include effect-active(3rem);
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2){
+                background-color: $color-main;
+                height: 200px;
+            }
+
+        }
+    }
+    [class*=conferenceDisp-]{
+        @include flexbox(row);
+        overflow: hidden;
+    }
+}
+
+.slideContent {
+    @include flexbox(column);
+    width: 100%;
+    margin: none;
+    height: fit-content;
+    align-self: flex-start;
+    align-content: center;
+    background-color: $color-2ndmain;
+
+    h3{
+        text-align: center;
+        padding: 2rem;
+    }
+
+    p{
+        
+        width: 100%;
+        height: fit-content;
+        padding: 2rem;
+        padding-top: 3rem;
+        margin-left: 4rem;
+    }
+
+    button{
+        margin: 1rem;
+    }
+}

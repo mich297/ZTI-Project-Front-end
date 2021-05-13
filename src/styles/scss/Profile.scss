@@ -1,0 +1,17 @@
+@import 'mixins';
+
+.profileContainer{
+    @include flexbox(column);
+    background-color: black;
+    border: 1px solid $color-effect;
+    grid-column: 4 / 10;
+    grid-row: 4 / 13;
+
+    div {
+        @include flexbox(row);
+        
+        input {
+            margin: 2rem;
+        }
+    }
+}

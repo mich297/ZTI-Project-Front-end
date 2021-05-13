@@ -1,8 +1,8 @@
 import React, { createRef } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import '../styles/Default.css';
-import '../styles/Login.css';
+import '../styles/css/Default.css';
+import '../styles/css/Login.css';
 
 class InputText extends React.Component {
     constructor(props){

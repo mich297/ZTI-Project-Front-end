@@ -1,0 +1,115 @@
+@import 'mixins';
+
+.calendar{
+    
+    display: grid;
+    overflow: hidden;
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    background-color: $color-main;
+    border: 1px solid $color-dark;
+    border-left: none;
+    
+
+    .calendarHeader{
+        @include flexbox(row);
+        grid-column: 1 / span 10;
+        grid-row: 1 / span 1;
+        background-color: $color-darkest;
+        color: $color-light-gray;
+        text-shadow: $basic-shadow;
+        // border: 1px solid $text-color;
+        .singleElementBox{
+            border: none;
+
+        }
+    }
+
+    .monthHeader{
+        @include flexbox(row);
+        grid-column: 1 / span 10;
+        grid-row: 2 / span 1;
+        color: $color-light-gray;
+        text-shadow: $basic-shadow;
+        user-select: none;
+        border-bottom: 1px solid $color-normal;
+
+        .singleElementBox{
+            cursor: pointer;
+            border: none;
+        }
+    }
+
+    [class*=singleDayBox]{
+        cursor: pointer;
+        @include flexbox(row);
+        @include text();
+        padding: 1rem;
+        font-weight: bold;
+        border: 1px solid $color-normal;
+        border-top: none;
+        border-left: none;
+        user-select: none;
+
+        &:hover{
+            background-color: #111111;
+        }
+        
+        &:hover{
+            @include effect-hover(5px);
+            @include text-hover(5px);
+        }
+
+        &:active{
+            @include effect-active(5px);
+            @include text-active(5px);
+        }
+
+        &:nth-child(33){
+            border-bottom: none;
+        }
+
+        &:nth-child(12){
+            border-right: none;
+        }
+
+        &:nth-child(22){
+            border-right: none;
+        }
+
+        &:nth-child(32){
+            border-right: none;
+        }
+            
+    }
+
+    .singleDayBoxPlanned{
+        background-color: $color-effect;
+        color: black;
+
+        &:hover {
+            background-color: $color-effect-strong;
+        }
+    }
+
+    .singleDayBoxPlannedToday{
+        border: 1px solid $color-light-gray;
+        background-color: $color-dark;
+
+        &:hover {
+            background-color: $color-effect-strong;
+            border-color: $color-high-lightup;
+        }
+    }
+
+    .singleDayBoxToday{
+        border: 1px solid $color-light-gray;
+
+        &:hover {
+            border-color: $color-high-lightup;
+        }
+
+    }
+}

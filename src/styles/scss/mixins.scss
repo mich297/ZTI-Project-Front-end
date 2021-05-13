@@ -1,0 +1,60 @@
+
+
+
+$basic-shadow: 1rem 1rem 1rem black;
+$color-main: rgb(10, 10, 10);
+$color-2ndmain: rgb(53, 43, 61);
+$color-darkest: #0C0032;
+$color-darker: #190061;
+$color-dark: #230090;
+$color-normal: #3500D3;
+$color-gray: rgb(8, 8, 8);
+$color-light-gray: #969696;
+$color-effect: #c00433;
+$color-effect-strong: #ff0062;
+$color-lightup: #906bff;
+$color-high-lightup: #ebb8ff;
+
+
+@mixin flexbox($direction, $justify: center, $alignitems: center, $aligncontent: center, $disp: flex){
+	display: $disp;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $alignitems;
+	align-content: $aligncontent;
+}
+
+@mixin icon(){
+	color: $color-normal;
+	fill: $color-normal;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+@mixin text() {
+	color: $color-normal;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+@mixin text-hover($strength) {
+	color: $color-lightup;
+	text-shadow: 0 0 $strength $color-effect;
+}
+
+@mixin effect-hover($strength){
+	color: $color-lightup;
+	fill: $color-lightup;
+	filter: drop-shadow( 0 0 $strength $color-effect);
+}
+
+@mixin text-active($strength){
+	color: $color-high-lightup;
+	text-shadow: 0 0 $strength $color-effect-strong;
+}
+
+@mixin effect-active($strength){
+	color: $color-high-lightup;
+	fill: $color-high-lightup;
+	filter: drop-shadow( 0 0 $strength $color-effect-strong);
+}

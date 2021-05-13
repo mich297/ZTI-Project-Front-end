@@ -1,0 +1,181 @@
+.calendar {
+  display: -ms-grid;
+  display: grid;
+  overflow: hidden;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-columns: (minmax(0, 1fr))[10];
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+  -ms-grid-rows: (minmax(0, 1fr))[6];
+      grid-template-rows: repeat(6, minmax(0, 1fr));
+  background-color: #0a0a0a;
+  border: 1px solid #230090;
+  border-left: none;
+}
+
+.calendar .calendarHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1 / span 10;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  background-color: #0C0032;
+  color: #969696;
+  text-shadow: 1rem 1rem 1rem black;
+}
+
+.calendar .calendarHeader .singleElementBox {
+  border: none;
+}
+
+.calendar .monthHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1 / span 10;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  color: #969696;
+  text-shadow: 1rem 1rem 1rem black;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-bottom: 1px solid #3500D3;
+}
+
+.calendar .monthHeader .singleElementBox {
+  cursor: pointer;
+  border: none;
+}
+
+.calendar [class*=singleDayBox] {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: #3500D3;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  padding: 1rem;
+  font-weight: bold;
+  border: 1px solid #3500D3;
+  border-top: none;
+  border-left: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.calendar [class*=singleDayBox]:hover {
+  background-color: #111111;
+}
+
+.calendar [class*=singleDayBox]:hover {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 5px #c00433);
+          filter: drop-shadow(0 0 5px #c00433);
+  color: #906bff;
+  text-shadow: 0 0 5px #c00433;
+}
+
+.calendar [class*=singleDayBox]:active {
+  color: #ebb8ff;
+  fill: #ebb8ff;
+  -webkit-filter: drop-shadow(0 0 5px #ff0062);
+          filter: drop-shadow(0 0 5px #ff0062);
+  color: #ebb8ff;
+  text-shadow: 0 0 5px #ff0062;
+}
+
+.calendar [class*=singleDayBox]:nth-child(33) {
+  border-bottom: none;
+}
+
+.calendar [class*=singleDayBox]:nth-child(12) {
+  border-right: none;
+}
+
+.calendar [class*=singleDayBox]:nth-child(22) {
+  border-right: none;
+}
+
+.calendar [class*=singleDayBox]:nth-child(32) {
+  border-right: none;
+}
+
+.calendar .singleDayBoxPlanned {
+  background-color: #c00433;
+  color: black;
+}
+
+.calendar .singleDayBoxPlanned:hover {
+  background-color: #ff0062;
+}
+
+.calendar .singleDayBoxPlannedToday {
+  border: 1px solid #969696;
+  background-color: #230090;
+}
+
+.calendar .singleDayBoxPlannedToday:hover {
+  background-color: #ff0062;
+  border-color: #ebb8ff;
+}
+
+.calendar .singleDayBoxToday {
+  border: 1px solid #969696;
+}
+
+.calendar .singleDayBoxToday:hover {
+  border-color: #ebb8ff;
+}
+/*# sourceMappingURL=Calendar.css.map */

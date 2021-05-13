@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect} from 'react';
-import '../styles/Default.css';
-import '../styles/Login.css';
-
-
+import '../styles/css/Default.css';
+import '../styles/css/Login.css';
 
 const LoginForm = (props) => {
     const [username, setUsername] = useState('');
@@ -11,23 +9,22 @@ const LoginForm = (props) => {
     const labelRef = useRef();
     const [labelClass, setLabelClass] = useState('');
     const [toggle, setToggle] = useState(false);
-    const url = '';
+    const url = 'http://localhost:3333/log';
     const [user, setUser] = useState(null);
 
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
         console.log(loggedInUser);
-        // setUser(foundUser);
         props.login(loggedInUser);
     }
 
-
-    async function postData(){
-        const data = {username, password}
+    async function postData(username, password){
+        const data = {username: username, password: password, id: 1}
         const response = await fetch(url, {
             method: "POST",
-            headres: {
-                'Content Type': 'application/json'
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         });
@@ -36,14 +33,8 @@ const LoginForm = (props) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        //TODO - Ask if login and password are correct, token temporarily always true and userId=0
-        // postData().then(data => {
-        //     console.log(data); 
-        //     setUser(data);
-        //     if(user !==null) localStorage.setItem('user', data);
-        // });
-        
-        let validationToken = true;
+
+        let validationToken = await postData(username, password);
         let userId = 0;
         
         if(!validationToken && communicate === ''){
@@ -61,15 +52,6 @@ const LoginForm = (props) => {
         }
         
     }
-
-    // useEffect(() => {
-    //     const loggedInUser = localStorage.getItem("user");
-    //     if (loggedInUser) {
-    //         const foundUser = JSON.parse(loggedInUser);
-    //         // setUser(foundUser);
-    //         props.login(foundUser);
-    //     }
-    //     }, []);
 
     useEffect(()=>{
         communicate === '' ? setLabelClass("label-noanim") : setLabelClass("label-anim");
@@ -98,11 +80,12 @@ const LoginForm = (props) => {
             placeholder="password" 
             name="password" value={password} 
             onChange={e => setPassword(e.currentTarget.value)}/>
-            <label ref={labelRef} className={labelClass} for="loginForm">{communicate}</label>
+            <label ref={labelRef} className={labelClass} htmlFor="loginForm">{communicate}</label>
             <button 
             className="button" 
             type="submit">Submit</button>
         </form>
+        <p onClick={()=>props.handleRegister(username, password)}>Sign up</p>
     </>
     );
 }

@@ -1,48 +1,41 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import '../../styles/Default.css';
-import '../../styles/Upcoming.css';
+import React, { useState, useEffect } from 'react';
+import '../../styles/css/Default.css';
+import '../../styles/css/Upcoming.css';
 import Calendar from './Calendar.js';
-
+import UpcomingOptionDisplay from './UpcomingOptionDisplay.js';
 
 const Upcoming = () => {
     const [displayClass, setDispClass] = useState('conferenceDisp-inv');
+    const [displayed, setDisplayed] = useState({});
+    const [upcomingConferences, setUpcomingConferences] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    //zapytanie do serwera
-    let temp = {
-        name: "Sample Conference",
-        date: [2021, 4, 11],
-        adress: '7 Sample Street',
-        begins: '7:30',
-        ends: '18:00'
-    }
-
-    let temp2 = {
-        name: "Sample Conference 2",
-        date: [2021, 4, 15],
-        adress: '7 Sample Street',
-        begins: '7:30',
-        ends: '18:00'
-    }
-    let upcomingConferences =[temp, temp2];
-
+    useEffect(() => {
+        setLoading(true);
+        fetch("http://localhost:3333/conferences").then(res => res.json()).then(data=>{
+        setUpcomingConferences(data);
+        setLoading(false);
+    });
+    }, []);
 
     const showDetails = (object) => {
-
+        let compClass = `conferenceDisp-${object.id}`;
+        const invClass = "conferenceDisp-inv";
+        displayClass === invClass ? setDispClass(compClass) : displayClass === compClass ? setDispClass(invClass) : setDispClass(compClass);
+        setDisplayed(object);
     }
+
     return(
         <div className="mainContainer">
             <Calendar upcoming={upcomingConferences} />
-            <div className="upcomingWindow">
-            </div>
-            <div className={displayClass}>
-                {upcomingConferences.map(single=>(
-                    <div className="upcomingSingle" onClick={showDetails(single)}>{single.name}</div>
+            <UpcomingOptionDisplay objectProp={displayed} dispClass={displayClass}/>
+            <div className="conferenceDisp">
+                {loading ? <div>Loading...</div> : upcomingConferences.map(single=>(
+                    <div key={single.toString()} className="upcomingSingle" onClick={()=>showDetails(single)}>{single.name}</div>
                 ))}
             </div>
         </div>
     );
 }
 
-export default Upcoming ;
+export default Upcoming;

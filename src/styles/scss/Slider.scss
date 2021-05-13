@@ -1,0 +1,36 @@
+@import 'mixins';
+
+.optionCircle{
+    @include flexbox(column);
+    @include icon();
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    border: 5px solid $color-normal;
+    cursor: pointer;
+    user-select: none;
+
+    p{
+        margin: 10px;
+        font-size: 16px;
+        text-shadow: none;
+    }
+
+    .icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    &:hover{
+        @include effect-hover(20px);
+        border-color: $color-lightup;
+        box-shadow: 0 0 10px $color-effect;
+    }
+
+    &:active{
+        @include effect-active(20px);
+        border-color: $color-high-lightup;
+        box-shadow: 0 0 20px $color-effect-strong;
+    }
+
+}
