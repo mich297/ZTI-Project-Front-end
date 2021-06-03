@@ -1,0 +1,59 @@
+@import 'mixins';
+
+#managementGrid {
+    grid-column: 1/ span 12;
+    grid-row: 4 / span 10;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat( 12, 1fr);
+    grid-template-rows: repeat( 12, 1fr);
+
+    #adminGrid {
+        display: grid;
+        grid-template-columns: repeat( 12, 1fr);
+        grid-template-rows: repeat( 12, 1fr);
+        grid-column: 3 / span 8;
+        grid-row: 1 / span 12;
+        background-color: black;
+
+        .singleElementBox{
+            grid-column: 1 / span 12;
+            grid-row: 1 / span 2;
+            h1 {
+                @include text-active(2rem);
+            }
+        }
+
+        .conferences{
+            grid-column: 1 / span 12;
+            grid-row: 3 / span 10;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        #addConference{
+            grid-column: 11 / 11;
+            grid-row: 11 /  11;
+            @include flexbox(row);
+            border-radius: 50%;
+            height: 5rem;
+            width: 5rem;
+            background-color: $color-effect;
+            cursor: pointer;
+            z-index: 3;
+            svg {
+                height: 3rem;
+                width: 3rem;
+
+                &:hover{
+                    @include effect-hover(2rem);
+                }
+
+                &:active{
+                    @include effect-hover(2rem);
+                }
+            }
+        }
+    }
+}

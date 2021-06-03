@@ -1,0 +1,105 @@
+#managementGrid {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1/ span 12;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 10;
+  grid-row: 4 / span 10;
+  height: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: (1fr)[12];
+      grid-template-rows: repeat(12, 1fr);
+}
+
+#managementGrid #adminGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: (1fr)[12];
+      grid-template-rows: repeat(12, 1fr);
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 8;
+  grid-column: 3 / span 8;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 12;
+  grid-row: 1 / span 12;
+  background-color: black;
+}
+
+#managementGrid #adminGrid .singleElementBox {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1 / span 12;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+}
+
+#managementGrid #adminGrid .singleElementBox h1 {
+  color: #ebb8ff;
+  text-shadow: 0 0 2rem #ff0062;
+}
+
+#managementGrid #adminGrid .conferences {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1 / span 12;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 10;
+  grid-row: 3 / span 10;
+  width: 100%;
+  overflow: hidden;
+}
+
+#managementGrid #adminGrid #addConference {
+  -ms-grid-column: 11;
+  grid-column: 11 / 11;
+  -ms-grid-row: 11;
+  grid-row: 11 /  11;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  background-color: #c00433;
+  cursor: pointer;
+  z-index: 3;
+}
+
+#managementGrid #adminGrid #addConference svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+#managementGrid #adminGrid #addConference svg:hover {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 2rem #c00433);
+          filter: drop-shadow(0 0 2rem #c00433);
+}
+
+#managementGrid #adminGrid #addConference svg:active {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 2rem #c00433);
+          filter: drop-shadow(0 0 2rem #c00433);
+}
+/*# sourceMappingURL=ManageConferences.css.map */
