@@ -94,7 +94,6 @@
       align-content: center;
   text-align: center;
   margin: 0.5rem;
-  margin-bottom: 2rem;
   -webkit-transition: font-size 0.3s ease-in-out;
   transition: font-size 0.3s ease-in-out;
 }

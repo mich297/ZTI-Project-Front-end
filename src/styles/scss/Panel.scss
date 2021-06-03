@@ -1,0 +1,112 @@
+@import 'mixins';
+
+.panelCreationGrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    min-width: 1300px;
+
+
+    .titleBack{
+        background-color: black;
+        grid-column: 3 / span 8;
+        grid-row: 1 / span 2;
+
+    }
+    h1 {
+        grid-column: 3 / span 8;
+        grid-row: 1 / span 2;
+        align-self: center;
+        justify-self: center;
+    }
+    h3 {
+        width: 100%;
+    }
+    .basicData{
+        grid-column: 3 / span 8;
+        grid-row: 3 / span 2;
+        overflow: hidden;
+        height: fit-content;
+        background-color: $color-gray;
+    }
+    .singleRowContainer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+    }
+
+    nav {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        grid-column: 3 / span 8;
+        grid-row: 8;
+        background-color: $color-gray;
+        .button{
+margin-left: 1rem;
+margin-right: 1rem;
+        }
+    }
+
+    #addRemove {
+        grid-column: 3 / span 8;
+        margin-top: 1.5rem;
+        grid-row: 7;
+        @include flexbox(row);
+        @include effect-hover(2rem);
+        filter: none;
+        z-index: 2;
+        background-color: black;
+        user-select: none;
+        div {
+            @include flexbox(row);
+            cursor: pointer;
+            width: 100%;
+
+            &:first-child{
+                border-right: 2px solid $color-effect-strong;
+            }
+
+            &:hover {
+                svg{
+                    @include effect-active(2rem); 
+                }
+                h3{
+                    @include text-active(2rem);
+                }
+            }
+        }
+        h3{
+            @include text-hover(2rem);
+            height: fit-content;
+            margin-left: 1rem;
+            justify-self: center;
+            align-self: center;
+            width: 60%;
+        }
+        svg{
+            width: 40%;
+            height: 2.5rem;
+        }
+        
+
+           
+        
+    }
+    .panelCreator{
+        padding-top: 4rem;
+        grid-column: 3 / span 8;
+        grid-row: 9 / span 12;
+        background-color: $color-gray;
+        height: fit-content;
+    }
+
+    .newPanel{
+        @include flexbox(row);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        background-color: black;
+    }
+}

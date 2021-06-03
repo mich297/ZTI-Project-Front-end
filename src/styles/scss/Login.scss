@@ -5,6 +5,8 @@
     width: 100%; 
     @include flexbox(row);
     flex-wrap: nowrap;
+    
+    
 
     .loginRegisterForm {
         height: fit-content;
@@ -41,7 +43,6 @@
                 align-content: center;
                 text-align: center;
                 margin: 0.5rem;
-                margin-bottom: 2rem;
                 transition: font-size 0.3s ease-in-out;
             }
 

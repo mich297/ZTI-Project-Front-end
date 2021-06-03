@@ -1,6 +1,6 @@
 @import 'mixins';
 
-#signedConferences{
+.signedConferences{
     @include flexbox(column, flex-start);
     overflow: hidden;
     overflow-y: auto;
@@ -23,7 +23,26 @@
         
     }
     .singleRowContainer {
-        @include flexbox(column);
+        height: 7rem;
+        background-color: black;
+        border-bottom: 2px solid $color-effect;
+
+        svg {
+            height: 50px;
+            width: 50px;
+            fill: $color-normal;
+        }
+
+        &:hover {
+            svg{
+                @include effect-active(2rem); 
+            }
+        }
+    }
+
+
+    .singleColumnContainer {
+        // @include flexbox(column);
         height: fit-content;
 
         & > div{

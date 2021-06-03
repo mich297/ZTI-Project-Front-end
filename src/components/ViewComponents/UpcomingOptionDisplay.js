@@ -32,7 +32,12 @@ const UpcomingOptionDisplay = (props) => {
       <div className="lowerOptionBox">
         <div className="description">{props.objectProp.description}</div>
         <div className="optionButtons">
-          <button className="button">Details</button>
+          <button
+            className="button"
+            onClick={() => props.conferencePanel(props.objectProp)}
+          >
+            Details
+          </button>
         </div>
       </div>
     </div>
