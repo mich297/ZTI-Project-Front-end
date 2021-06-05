@@ -5,17 +5,15 @@ import "../../styles/css/SignedConferences.css";
 import ConferencePreview from "./ConferencePreview.js";
 import SearchIcon from "@material-ui/icons/Search";
 
-const AllConferences = () => {
+const AllConferences = (props) => {
   const [conferences, setConferences] = useState([]);
   const [displayed, setDisplayed] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [renSwitch, setSwitch] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-
-    debugger;
-
     let authorization = "Bearer " + localStorage.getItem("token");
     let myHeaders = new Headers();
     myHeaders.append("authorization", authorization);
@@ -23,7 +21,6 @@ const AllConferences = () => {
     let requestOptions = {
       method: "GET",
       body: null,
-      // mode: "cors",
       headers: myHeaders,
       redirect: "follow",
     };
@@ -39,49 +36,12 @@ const AllConferences = () => {
         setLoading(false);
       })
       .catch((error) => console.log(error));
-
-    // let headers = new Headers();
-
-    // headers.append("Content-Type", "application/json");
-    // headers.append("Accept", "application/json");
-    // headers.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
-    // headers.append("Origin", "http://localhost:3000");
-
-    // let requestOptions = {
-    //   // mode: "cors",
-    //   credentials: "include",
-    //   method: "GET",
-    //   headers: headers,
-    // };
-
-    // fetch("http://localhost:8080/conferences", requestOptions)
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json))
-    //   .catch((error) => console.log("Authorization failed : " + error.message));
-
-    // var data = "";
-    // var xhr = new XMLHttpRequest();
-    // xhr.withCredentials = true;
-
-    // xhr.addEventListener("readystatechange", function () {
-    //   if (this.readyState === 4) {
-    //     debugger;
-    //     console.log(this.responseText);
-    //   }
-    // });
-
-    // xhr.open("GET", "http://localhost:8080/conferences");
-    // xhr.setRequestHeader(
-    //   "Authorization",
-    //   `Bearer ${localStorage.getItem("token")}`
-    // );
-    // xhr.send(data);
-  }, []);
+  }, [renSwitch]);
 
   useEffect(() => {
     let displayedArray = [];
     for (let i = 0; i < conferences.length; i++) {
-      if (conferences[i].name.includes(search))
+      if (conferences[i].description.includes(search))
         displayedArray.push(conferences[i]);
     }
     setDisplayed([...displayedArray]);
@@ -109,7 +69,13 @@ const AllConferences = () => {
       ) : displayed.length === 0 ? (
         <div>No such records</div>
       ) : (
-        displayed.map((single) => <ConferencePreview object={single} />)
+        displayed.map((single) => (
+          <ConferencePreview
+            conferencePanel={(confObject) => props.conferencePanel(confObject)}
+            object={single}
+            renSwitch={() => setSwitch(!renSwitch)}
+          />
+        ))
       )}
     </div>
   );

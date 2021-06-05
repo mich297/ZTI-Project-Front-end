@@ -13,11 +13,32 @@ const ManageConference = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3333/conferences")
-      .then((res) => res.json())
+    let authorization = "Bearer " + localStorage.getItem("token");
+    let myHeaders = new Headers();
+    myHeaders.append("authorization", authorization);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      login: `${localStorage.getItem("user")}`,
+    });
+
+    let requestOptions = {
+      method: "POST",
+      body: raw,
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("/conferences/byFounder", requestOptions)
+      .then((res) => {
+        if (res.status !== 200) throw Error(res.statusText);
+        return res.json();
+      })
       .then((data) => {
         setConferences(data);
-      });
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   const userContent = <div id="userGrid"></div>;

@@ -46,11 +46,20 @@
   -ms-grid-row: 3;
   -ms-grid-row-span: 2;
   grid-row: 3 / span 2;
-  overflow: hidden;
+  overflow-y: scroll;
+  height: 20rem;
+  background-color: #080808;
+}
+
+.panelCreationGrid .basicData::-webkit-scrollbar {
+  display: none;
+}
+
+.panelCreationGrid .basicData .innerWin {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: #080808;
+  width: 100%;
 }
 
 .panelCreationGrid .singleRowContainer {

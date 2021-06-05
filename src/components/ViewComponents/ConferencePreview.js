@@ -7,30 +7,75 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import EventIcon from "@material-ui/icons/Event";
 import { useHistory } from "react-router-dom";
+import { textDate, dayDisplay, isRegistered } from "../Functions.js";
 
 const ConferencePreview = (props) => {
   const [height, setHeight] = useState("0px");
   const [expand, setExpand] = useState(true);
-  const [button, setButton] = useState("Unregister");
+  const [button, setButton] = useState("");
+
+  useEffect(() => {
+    let isReg = isRegistered(props.object);
+    if (isReg === true) setButton("Unregister");
+    else setButton("Register");
+  }, []);
+
+  const registerYourself = () => {
+    let authorization = "Bearer " + localStorage.getItem("token");
+    let myHeaders = new Headers();
+    myHeaders.append("authorization", authorization);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      login: `${localStorage.getItem("user")}`,
+    });
+
+    let requestOptions = {
+      method: "POST",
+      body: raw,
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    if (isRegistered(props.object)) {
+      fetch(`/conferences/${props.object.id}/deleteParticipant`, requestOptions)
+        .then((res) => {
+          if (res.status !== 200) throw Error(res.statusText);
+          props.renSwitch();
+          return res.json();
+        })
+        .catch((error) => console.log(error));
+    } else {
+      fetch(`/conferences/${props.object.id}/addParticipant`, requestOptions)
+        .then((res) => {
+          if (res.status !== 200) throw Error(res.statusText);
+          props.renSwitch();
+          return res.json();
+        })
+        .catch((error) => console.log(error));
+    }
+  };
 
   const slidePreview = () => {
     expand === true ? setExpand(false) : setExpand(true);
     height === "0px" ? setHeight("fit-content") : setHeight("0px");
   };
 
-  const banner = {
-    background: props.object.banner[0],
-    background: props.object.banner[1],
-  };
   return (
     <div className="singleColumnContainer">
       <div>
-        <p>{props.object.name}</p>
+        <p>{props.object.description}</p>
         <EventIcon></EventIcon>
-        <p>{props.object.date}</p>
         <ScheduleIcon></ScheduleIcon>
-        <p>{props.object.begins}</p>
-        <p>{props.object.ends}</p>
+        <p>
+          {props.object.start[0]} {textDate(props.object.start[1])}{" "}
+          {dayDisplay(props.object.start[2])} {props.object.start[3]}:
+          {props.object.start[4]}
+        </p>
+        <p>
+          {props.object.end[0]} {textDate(props.object.end[1])}{" "}
+          {dayDisplay(props.object.end[2])} {props.object.end[3]}:
+          {props.object.end[4]}
+        </p>
         {expand ? (
           <ExpandMoreIcon onClick={() => slidePreview()}></ExpandMoreIcon>
         ) : (
@@ -39,10 +84,11 @@ const ConferencePreview = (props) => {
       </div>
       <div style={{ height: `${height}` }}>
         <div className="slideContent">
-          <h3 style={banner}>{props.object.name}</h3>
-          <p>{props.object.description}</p>
+          <h3>{props.object.description}</h3>
           <div className="singleRowContainer">
-            <button className="button">{button}</button>
+            <button className="button" onClick={() => registerYourself()}>
+              {button}
+            </button>
             <button
               className="button"
               onClick={() => props.conferencePanel(props.object)}

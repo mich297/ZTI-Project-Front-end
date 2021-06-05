@@ -17,27 +17,48 @@ const SignedConferences = (props) => {
   const [displayed, setDisplayed] = useState({});
   const [upcomingConferences, setUpcomingConferences] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [renSwitch, setSwitch] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3333/conferences")
-      .then((res) => res.json())
+    let authorization = "Bearer " + localStorage.getItem("token");
+    let myHeaders = new Headers();
+    myHeaders.append("authorization", authorization);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      login: `${localStorage.getItem("user")}`,
+    });
+
+    let requestOptions = {
+      method: "POST",
+      body: raw,
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("/conferences/byUser", requestOptions)
+      .then((res) => {
+        if (res.status !== 200) throw Error(res.statusText);
+        return res.json();
+      })
       .then((data) => {
         setUpcomingConferences(data);
         setLoading(false);
-      });
-  }, []);
+      })
+      .catch((error) => console.log(error));
+  }, [renSwitch]);
 
-  const showDetails = (object) => {
-    let compClass = `conferenceDisp-${object.id}`;
-    const invClass = "conferenceDisp-inv";
-    displayClass === invClass
-      ? setDispClass(compClass)
-      : displayClass === compClass
-      ? setDispClass(invClass)
-      : setDispClass(compClass);
-    setDisplayed(object);
-  };
+  // const showDetails = (object) => {
+  //   let compClass = `conferenceDisp-${object.id}`;
+  //   const invClass = "conferenceDisp-inv";
+  //   displayClass === invClass
+  //     ? setDispClass(compClass)
+  //     : displayClass === compClass
+  //     ? setDispClass(invClass)
+  //     : setDispClass(compClass);
+  //   setDisplayed(object);
+  // };
 
   return (
     <div class="signedConferences">
@@ -51,6 +72,7 @@ const SignedConferences = (props) => {
           <ConferencePreview
             conferencePanel={(confObject) => props.conferencePanel(confObject)}
             object={single}
+            renSwitch={() => setSwitch(!renSwitch)}
           />
         ))
       )}

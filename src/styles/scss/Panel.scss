@@ -28,9 +28,18 @@
     .basicData{
         grid-column: 3 / span 8;
         grid-row: 3 / span 2;
-        overflow: hidden;
-        height: fit-content;
+        overflow-y: scroll;
+        height: 20rem;
         background-color: $color-gray;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+
+        .innerWin{
+            height: fit-content;
+            width: 100%;
+        }
     }
     .singleRowContainer {
         padding-left: 2rem;

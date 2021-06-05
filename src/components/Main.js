@@ -46,7 +46,9 @@ const Main = () => {
     ) : content === "settings" ? (
       <Profile />
     ) : content === "all" ? (
-      <AllConferences />
+      <AllConferences
+        conferencePanel={(confObject) => conference(confObject)}
+      />
     ) : content === "manage" ? (
       <ManageConference />
     ) : content === "conference" ? (

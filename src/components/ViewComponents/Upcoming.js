@@ -11,12 +11,34 @@ const Upcoming = (props) => {
   const [displayed, setDisplayed] = useState({});
   const [upcomingConferences, setUpcomingConferences] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [dateChange, setDateChange] = useState([]); //bit scuffed
+  const [dateChange, setDateChange] = useState([
+    actualDate()[1],
+    actualDate()[2],
+  ]);
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8080/conferences")
-      .then((res) => res.json())
+    let authorization = "Bearer " + localStorage.getItem("token");
+    let myHeaders = new Headers();
+    myHeaders.append("authorization", authorization);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      login: `${localStorage.getItem("user")}`,
+    });
+
+    let requestOptions = {
+      method: "POST",
+      body: raw,
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("/conferences/byUser", requestOptions)
+      .then((res) => {
+        if (res.status !== 200) throw Error(res.statusText);
+        return res.json();
+      })
       .then((data) => {
         let filteredData = [];
         for (let i = 0; i < data.length; i++) {
@@ -24,7 +46,20 @@ const Upcoming = (props) => {
         }
         setUpcomingConferences(filteredData);
         setLoading(false);
-      });
+      })
+      .catch((error) => console.log(error));
+
+    // setLoading(true);
+    // fetch("http://localhost:8080/conferences")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     let filteredData = [];
+    //     for (let i = 0; i < data.length; i++) {
+    //       if (conferencesThisMonth(data[i])) filteredData.push(data[i]);
+    //     }
+    //     setUpcomingConferences(filteredData);
+    //     setLoading(false);
+    //   });
   }, [dateChange]);
 
   const showDetails = (object) => {
@@ -41,8 +76,13 @@ const Upcoming = (props) => {
   const conferencesThisMonth = (single) => {
     const thisMonthYear = dateChange;
     if (
-      single.date[1] === thisMonthYear[0] &&
-      single.date[0] === thisMonthYear[1]
+      single.start[1] === thisMonthYear[0] &&
+      single.start[0] === thisMonthYear[1]
+    )
+      return true;
+    else if (
+      single.end[1] === thisMonthYear[0] &&
+      single.end[0] === thisMonthYear[1]
     )
       return true;
     else return false;
@@ -54,7 +94,11 @@ const Upcoming = (props) => {
         upcoming={upcomingConferences}
         changeDisplay={(month, year) => setDateChange([month, year])}
       />
-      <UpcomingOptionDisplay conferencePanel={(confObject) => props.conferencePanel(confObject)} objectProp={displayed} dispClass={displayClass} />
+      <UpcomingOptionDisplay
+        conferencePanel={(confObject) => props.conferencePanel(confObject)}
+        objectProp={displayed}
+        dispClass={displayClass}
+      />
       <div className="conferenceDisp">
         {loading ? (
           <div>Loading...</div>
@@ -65,7 +109,7 @@ const Upcoming = (props) => {
               className="upcomingSingle"
               onClick={() => showDetails(single)}
             >
-              {single.name}
+              {single.description}
             </div>
           ))
         )}
