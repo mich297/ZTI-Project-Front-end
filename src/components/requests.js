@@ -51,4 +51,67 @@ async function fetchUserConferences() {
     });
 }
 
-export { postData, fetchAllConferences, fetchUserConferences };
+async function changeAccData(data, value, confirm) {
+  let authorization = "Bearer " + localStorage.getItem("token");
+  let myHeaders = new Headers();
+  myHeaders.append("authorization", authorization);
+  myHeaders.append("Content-Type", "application/json");
+  let raw;
+  switch (data) {
+    case "mail":
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newMail: `${value}`,
+      });
+      break;
+    case "password":
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newPassword: `${value}`,
+      });
+      break;
+    case "login":
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newLogin: `${value}`,
+      });
+      break;
+    case "name":
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newName: `${value}`,
+      });
+      break;
+    case "surname":
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newSurname: `${value}`,
+      });
+      break;
+    default:
+      raw = JSON.stringify({
+        login: `${localStorage.getItem("user")}`,
+        newSurname: `${value}`,
+      });
+  }
+
+  let requestOptions = {
+    method: "POST",
+    body: raw,
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  fetch(`/accounts/${data}`, requestOptions)
+    .then((res) => {
+      if (res.status === 200 || res.status === 201) {
+        if (data === "login") localStorage.setItem("user", value);
+        confirm();
+      } else {
+        throw Error(res.statusText);
+      }
+    })
+    .catch((error) => console.log(error));
+}
+
+export { postData, fetchAllConferences, fetchUserConferences, changeAccData };

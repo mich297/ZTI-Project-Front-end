@@ -45,6 +45,62 @@
   text-shadow: 0 0 2rem #ff0062;
 }
 
+#managementGrid #adminGrid .singleRowContainer {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #3500D3;
+  cursor: pointer;
+}
+
+#managementGrid #adminGrid .singleRowContainer div {
+  font-size: 2rem;
+  color: #3500D3;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#managementGrid #adminGrid .singleRowContainer svg {
+  color: #3500D3;
+  fill: #3500D3;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+}
+
+#managementGrid #adminGrid .singleRowContainer:hover div {
+  color: #906bff;
+  text-shadow: 0 0 1rem #c00433;
+}
+
+#managementGrid #adminGrid .singleRowContainer:hover svg {
+  color: #906bff;
+  fill: #906bff;
+  -webkit-filter: drop-shadow(0 0 1rem #c00433);
+          filter: drop-shadow(0 0 1rem #c00433);
+}
+
+#managementGrid #adminGrid .singleRowContainer:active div {
+  color: #ebb8ff;
+  text-shadow: 0 0 1rem #ff0062;
+}
+
+#managementGrid #adminGrid .singleRowContainer:active svg {
+  color: #ebb8ff;
+  fill: #ebb8ff;
+  -webkit-filter: drop-shadow(0 0 1rem #ff0062);
+          filter: drop-shadow(0 0 1rem #ff0062);
+}
+
 #managementGrid #adminGrid .conferences {
   -ms-grid-column: 1;
   -ms-grid-column-span: 12;
@@ -53,14 +109,18 @@
   -ms-grid-row-span: 10;
   grid-row: 3 / span 10;
   width: 100%;
-  overflow: hidden;
+  overflow: scroll;
+}
+
+#managementGrid #adminGrid .conferences::-webkit-scrollbar {
+  display: none;
 }
 
 #managementGrid #adminGrid #addConference {
   -ms-grid-column: 11;
   grid-column: 11 / 11;
-  -ms-grid-row: 11;
-  grid-row: 11 /  11;
+  -ms-grid-row: 2;
+  grid-row: 2 /  2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,7 +141,7 @@
   width: 5rem;
   background-color: #c00433;
   cursor: pointer;
-  z-index: 3;
+  z-index: 1;
 }
 
 #managementGrid #adminGrid #addConference svg {

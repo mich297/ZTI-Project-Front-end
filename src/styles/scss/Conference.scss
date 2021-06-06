@@ -1,0 +1,78 @@
+@import 'mixins';
+
+.conferenceGrid{
+    grid-column: 1/ span 12;
+    grid-row: 4 / span 10;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat( 12, 1fr);
+    grid-template-rows: repeat( 12, 1fr);
+    background-color: $color-gray;
+
+    h1 {
+        @include flexbox(row);
+        font-size: 3rem;
+        background-color: black;
+        border: 3px solid $color-effect;
+        box-shadow: 0 0.3rem 0.5rem $color-effect-strong;
+        border-bottom: none;
+
+        &:nth-of-type(1){
+            grid-column: 1/ span 6;
+            grid-row: 1 / span 2;
+        }
+        
+        &:nth-of-type(2){
+            grid-column: 7/ span 6;
+            grid-row: 1 / span 2;
+            
+        }
+    }
+
+    .conferenceInfo{
+        @include flexbox(row);
+        @include text();
+        border: 3px solid $color-effect;
+        font-size: 1.5rem;
+        border-top: 0px;
+        border-bottom: 0px;
+        cursor: auto;
+        user-select: none;
+        box-sizing: border-box;
+        box-shadow: 0 0.3rem 0.5rem $color-effect-strong;
+
+        &:nth-of-type(1){
+            grid-column: 1/ span 6;
+            grid-row: 3 / span 2;
+        }
+        &:nth-of-type(2){
+            grid-column: 1/ span 6;
+            grid-row: 5 / span 2;
+        }
+        &:nth-of-type(3){
+            grid-column: 1/ span 6;
+            grid-row: 7 / span 2;
+        }
+        &:nth-of-type(4){
+            grid-column: 1/ span 6;
+            grid-row: 9 / span 4;
+        }
+        mark{
+            background-color: transparent;
+            @include text-hover(1rem);
+            padding-left: 1rem;
+        }
+        .button{
+            height: 7rem;
+            width: 12rem;
+            font-size: 2rem;
+        }
+    }
+
+    .panelContainer{
+        @include flexbox(column);
+        grid-column: 7/ span 6;
+        grid-row: 3 / span 12;
+    }
+}

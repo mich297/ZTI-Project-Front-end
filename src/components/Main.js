@@ -9,6 +9,7 @@ import AllConferences from "./ViewComponents/AllConferences";
 import ManageConference from "./ViewComponents/ManageConference";
 import SlidingMenu from "./SlidingMenuComponents/SlidingMenu";
 import Conference from "./Conference.js";
+import Statistics from "./Statistics.js";
 
 const fetchConferenceData = async () => {
   const data = await fetch("http://localhost3333", {
@@ -38,6 +39,11 @@ const Main = () => {
     setConf(confObject);
     setContent("conference");
   };
+
+  const confStats = (confObject) => {
+    setConf(confObject);
+    setContent("statistics");
+  };
   let visibleContent =
     content === "signed" ? (
       <SignedConferences
@@ -50,9 +56,11 @@ const Main = () => {
         conferencePanel={(confObject) => conference(confObject)}
       />
     ) : content === "manage" ? (
-      <ManageConference />
+      <ManageConference showStats={(confObject) => confStats(confObject)} />
     ) : content === "conference" ? (
       <Conference conference={conf} />
+    ) : content === "statistics" ? (
+      <Statistics conference={conf} />
     ) : (
       <Upcoming conferencePanel={(confObject) => conference(confObject)} />
     );

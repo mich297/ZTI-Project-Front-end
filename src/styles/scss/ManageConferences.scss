@@ -25,23 +25,63 @@
             }
         }
 
+        .singleRowContainer{
+            height: fit-content;
+            padding: 1rem;
+            justify-content: space-between;
+            box-sizing: border-box;
+            border-bottom: 1px solid $color-normal;
+            cursor: pointer;
+
+            div {
+                font-size: 2rem; 
+                @include text();
+            }
+            svg {
+                @include icon();
+                height: 3rem;
+                width: 3rem;
+            }
+
+            &:hover{
+                div{
+                    @include text-hover(1rem);
+                }
+                svg{
+                    @include effect-hover(1rem);
+                }  
+            }
+            &:active{
+                div{
+                    @include text-active(1rem);
+                }
+                svg{
+                    @include effect-active(1rem);
+                }  
+            }
+        }
+
         .conferences{
             grid-column: 1 / span 12;
             grid-row: 3 / span 10;
             width: 100%;
-            overflow: hidden;
+            overflow: scroll;
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
         }
         
         #addConference{
             grid-column: 11 / 11;
-            grid-row: 11 /  11;
+            grid-row: 2 /  2;
             @include flexbox(row);
             border-radius: 50%;
             height: 5rem;
             width: 5rem;
             background-color: $color-effect;
             cursor: pointer;
-            z-index: 3;
+            z-index: 1;
             svg {
                 height: 3rem;
                 width: 3rem;

@@ -5,8 +5,10 @@ import "../../styles/css/Upcoming.css";
 import "../../styles/css/ManageConferences.css";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { useHistory } from "react-router";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 
-const ManageConference = () => {
+const ManageConference = (props) => {
   const [loading, setLoading] = useState(true);
   const [conferences, setConferences] = useState([]);
   let history = useHistory();
@@ -41,30 +43,29 @@ const ManageConference = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const userContent = <div id="userGrid"></div>;
-
-  const creatorContent = (
-    <div id="adminGrid">
-      <div className="singleElementBox">
-        <h1>Your Conferences</h1>
-      </div>
-      <div className="conferences">
-        {conferences.map((single) => (
-          <div className="singleRowContainer">
-            <div className="singleElementBox">{single.name}</div>
-            <div className="button">Modify</div>
-          </div>
-        ))}
-      </div>
-      <div id="addConference" onClick={() => history.push("/make")}>
-        <AddCircleOutlineIcon></AddCircleOutlineIcon>
+  return (
+    <div id="managementGrid">
+      <div id="adminGrid">
+        <div className="singleElementBox">
+          <h1>Your Conferences</h1>
+        </div>
+        <div className="conferences">
+          {conferences.map((single) => (
+            <div
+              className="singleRowContainer"
+              onClick={() => props.showStats(single)}
+            >
+              <div className="singleElementBox">{single.description}</div>
+              <EqualizerIcon></EqualizerIcon>
+            </div>
+          ))}
+        </div>
+        <div id="addConference" onClick={() => history.push("/make")}>
+          <AddCircleOutlineIcon></AddCircleOutlineIcon>
+        </div>
       </div>
     </div>
   );
-
-  const content = creatorContent;
-
-  return <div id="managementGrid">{content}</div>;
 };
 
 export default ManageConference;
