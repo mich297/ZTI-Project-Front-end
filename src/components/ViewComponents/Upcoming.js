@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/css/Default.css";
 import "../../styles/css/Upcoming.css";
 import Calendar from "./Calendar.js";
 import { actualDate } from "../Functions.js";
 import UpcomingOptionDisplay from "./UpcomingOptionDisplay.js";
-import { userDataComtext, handleContextUpdate } from "./userDataContext.js";
 
 const Upcoming = (props) => {
   const [displayClass, setDispClass] = useState("conferenceDisp-inv");
@@ -48,18 +47,6 @@ const Upcoming = (props) => {
         setLoading(false);
       })
       .catch((error) => console.log(error));
-
-    // setLoading(true);
-    // fetch("http://localhost:8080/conferences")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     let filteredData = [];
-    //     for (let i = 0; i < data.length; i++) {
-    //       if (conferencesThisMonth(data[i])) filteredData.push(data[i]);
-    //     }
-    //     setUpcomingConferences(filteredData);
-    //     setLoading(false);
-    //   });
   }, [dateChange]);
 
   const showDetails = (object) => {
@@ -101,7 +88,7 @@ const Upcoming = (props) => {
       />
       <div className="conferenceDisp">
         {loading ? (
-          <div>Loading...</div>
+          <div className="loader">Ładuję...</div>
         ) : (
           upcomingConferences.map((single) => (
             <div

@@ -8,7 +8,6 @@ const Statistics = (props) => {
   const [participants, setParticipants] = useState([]);
   const [averagePanel, setAveragePanel] = useState(0);
   const [enrolledVoted, setEnrolledVoted] = useState(0);
-  const [removed, setRemoved] = useState(true);
 
   let authorization = "Bearer " + localStorage.getItem("token");
   let myHeaders = new Headers();
@@ -61,27 +60,27 @@ const Statistics = (props) => {
       })
       .then((data) => setEnrolledVoted(data))
       .catch((error) => console.log(error));
-  }, [removed]);
+  }, []);
 
   return (
     <div className="statGrid">
       <div className="charts">
-        <div>
-          <div>Number of participants: </div>
+        <div className="singleInfo">
+          <div>Liczba uczestników: </div>
           <h1>{participants}</h1>
         </div>
-        <div>
-          <div>Average mark: </div>
+        <div className="singleInfo">
+          <div>Średnia ocena: </div>
           <h1>{averagePanel}</h1>
         </div>
       </div>
       <div className="charts">
-        <div>marks left by participants</div>
-        <h1>{enrolledVoted * 100}%</h1>
-        <div>participants</div>
+        <div>Oceny pozostawione zostały przez</div>
+        <h1>{enrolledVoted === NaN ? "0%" : enrolledVoted * 100}%</h1>
+        <div>uczestników</div>
       </div>
       <div className="registered">
-        <div className="colLabel">Participants:</div>
+        <div className="colLabel">Uczestnicy:</div>
         {props.conference.participants.map((participant) => (
           <div key={participant.id} className="singleRowContainer">
             <div>ID:{participant.id}</div>

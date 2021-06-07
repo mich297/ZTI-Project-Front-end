@@ -86,8 +86,8 @@
 
 #loginContainer .loginRegisterForm #loginForm label {
   visibility: hidden;
-  color: #3500D3;
-  text-shadow: 2px 2px 4px #3500D3;
+  color: #3b33b1;
+  text-shadow: 2px 2px 4px #3b33b1;
   height: 1rem;
   width: 15rem;
   -ms-flex-line-pack: center;
@@ -182,7 +182,7 @@
 }
 
 #loginContainer .loginRegisterForm #loginForm .progressBar [class*=colorBar]:nth-child(2) {
-  background-color: #3500D3;
+  background-color: #3b33b1;
   height: 10%;
 }
 
@@ -203,7 +203,7 @@
 
 #loginContainer .loginRegisterForm #loginForm .progressLabel {
   visibility: visible;
-  color: #3500D3;
+  color: #3b33b1;
   font-size: small;
 }
 
@@ -217,7 +217,7 @@
 }
 
 #loginContainer .loginRegisterForm #loginForm .progressLabel .medium {
-  color: #3500D3;
+  color: #3b33b1;
 }
 
 #loginContainer .loginRegisterForm #loginForm .progressLabel .strong {
@@ -268,7 +268,7 @@
 }
 
 .greenWarning {
-  color: #3500D3;
+  color: #3b33b1;
   font-size: small;
 }
 

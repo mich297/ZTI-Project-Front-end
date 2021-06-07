@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { postData } from "./requests.js";
 import "../styles/css/Default.css";
 import "../styles/css/Login.css";
+import { actualDate } from "./Functions.js";
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState("");
@@ -10,11 +11,10 @@ const LoginForm = (props) => {
   const labelRef = useRef();
   const [labelClass, setLabelClass] = useState("");
   const [toggle, setToggle] = useState(false);
-  const url = "http://localhost:8080/login";
-  const [user, setUser] = useState(null);
 
   const loggedInUser = localStorage.getItem("user");
-  if (loggedInUser) {
+  const isStillValid = localStorage.getItem("today") === `${actualDate()[0]}`;
+  if (loggedInUser && isStillValid) {
     console.log(loggedInUser);
     props.login(loggedInUser);
   }
@@ -25,15 +25,15 @@ const LoginForm = (props) => {
     const result = postData(username, password);
     result.then((validationToken) => {
       if (validationToken === null && communicate === "") {
-        setCommunicate("Invaild password or/and username");
+        setCommunicate("Nieprawidłowe dane!");
         setToggle(!toggle);
       } else if (validationToken === null) {
         setToggle(!toggle);
-        setCommunicate("Invaild password or/and username");
+        setCommunicate("Nieprawidłowe dane!");
       } else {
         localStorage.setItem("user", username);
         localStorage.setItem("token", validationToken);
-        localStorage.setItem("permissions", "admin");
+        localStorage.setItem("today", actualDate()[0]);
         props.login();
       }
     });
@@ -48,20 +48,15 @@ const LoginForm = (props) => {
     }, 300);
   }, [toggle]);
 
-  let userData = {
-    username: username,
-    password: password,
-  };
-
   return (
     <>
-      <h1>Sign in</h1>
+      <h1>Zaloguj</h1>
       <form id="loginForm" autoComplete="off" onSubmit={handleSubmit}>
         <input
           type="text"
           className="inputForm"
           required
-          placeholder="username"
+          placeholder="login"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.currentTarget.value)}
@@ -70,7 +65,7 @@ const LoginForm = (props) => {
           type="password"
           className="inputForm"
           required
-          placeholder="password"
+          placeholder="hasło"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.currentTarget.value)}
@@ -79,10 +74,10 @@ const LoginForm = (props) => {
           {communicate}
         </label>
         <button className="button" type="submit">
-          Submit
+          Zatwierdź
         </button>
       </form>
-      <p onClick={() => props.handleRegister()}>Sign up</p>
+      <p onClick={() => props.handleRegister()}>Zarejestruj</p>
     </>
   );
 };

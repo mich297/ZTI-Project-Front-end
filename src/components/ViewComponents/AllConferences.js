@@ -50,7 +50,7 @@ const AllConferences = (props) => {
   return (
     <div class="signedConferences">
       <div id="titleDiv">
-        <h1>All Conferences</h1>
+        <h1>Wszystkie konferencje</h1>
       </div>
       <div className="singleRowContainer">
         <SearchIcon></SearchIcon>
@@ -58,14 +58,14 @@ const AllConferences = (props) => {
           type="text"
           className="inputForm"
           required
-          placeholder="Search..."
+          placeholder="Szukaj..."
           name="search"
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
         />
       </div>
       {loading ? (
-        <div>Loading</div>
+        <div className="loader">Ładuję...</div>
       ) : displayed.length === 0 ? (
         <div>No such records</div>
       ) : (
@@ -73,6 +73,8 @@ const AllConferences = (props) => {
           <ConferencePreview
             conferencePanel={(confObject) => props.conferencePanel(confObject)}
             object={single}
+            mode={"all"}
+            key={single.id}
             renSwitch={() => setSwitch(!renSwitch)}
           />
         ))

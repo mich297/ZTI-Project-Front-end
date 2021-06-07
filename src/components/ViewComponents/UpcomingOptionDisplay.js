@@ -1,20 +1,7 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
 import "../../styles/css/Default.css";
 import "../../styles/css/Upcoming.css";
-import Calendar from "./Calendar.js";
-import { textDate, dayDisplay, isRegistered } from "../Functions.js";
-
-// const displayDate = (date) => {
-//   let displayDate = "";
-//   if (date !== undefined) {
-//     displayDate = `${date[0]}\t\t${
-//       date[1] < 10 ? date[1].toString().padStart(2, "0") : date[1]
-//     }\t\t${date[2]}`;
-//   }
-//   return displayDate;
-// };
+import { textDate, dayDisplay } from "../Functions.js";
 
 const displayDateFunction = (objectProp) => {
   if (objectProp.start === undefined) {
@@ -48,13 +35,12 @@ const UpcomingOptionDisplay = (props) => {
       <header>{props.objectProp.description}</header>
       <div>{displayDateFunction(props.objectProp)}</div>
       <div className="lowerOptionBox">
-        <div className="description">{props.objectProp.description}</div>
         <div className="optionButtons">
           <button
             className="button"
             onClick={() => props.conferencePanel(props.objectProp)}
           >
-            Details
+            Szczegóły
           </button>
         </div>
       </div>

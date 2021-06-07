@@ -15,8 +15,6 @@
         font-size: 3rem;
         background-color: black;
         border: 3px solid $color-effect;
-        box-shadow: 0 0.3rem 0.5rem $color-effect-strong;
-        border-bottom: none;
 
         &:nth-of-type(1){
             grid-column: 1/ span 6;
@@ -33,15 +31,12 @@
     .conferenceInfo{
         @include flexbox(row);
         @include text();
-        border: 3px solid $color-effect;
+        border: 3px solid $color-normal;
         font-size: 1.5rem;
         border-top: 0px;
-        border-bottom: 0px;
         cursor: auto;
         user-select: none;
         box-sizing: border-box;
-        box-shadow: 0 0.3rem 0.5rem $color-effect-strong;
-
         &:nth-of-type(1){
             grid-column: 1/ span 6;
             grid-row: 3 / span 2;
@@ -73,6 +68,47 @@
     .panelContainer{
         @include flexbox(column);
         grid-column: 7/ span 6;
-        grid-row: 3 / span 12;
+        grid-row: 5 / span 10;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        } 
+    }
+    .inputForm{
+        @include flexbox(column);
+        grid-column: 7/ span 6;
+        grid-row: 3 / span 1;
+    }
+
+    .singleRowContainer{
+        justify-content: space-around;
+        box-sizing: border-box;
+        min-height: 40px;
+
+        
+        .singleRowContainer{
+            @include flexbox(row, flex-end);
+            box-sizing: border-box;
+            padding-right: 2rem;
+        }
+        div{
+            box-sizing: border-box;
+            padding-left: 2rem;  
+            @include text();
+            width: 100%;
+            cursor: default;
+            user-select: none;
+
+        }
+        
+    }
+    #comm{
+        grid-column: 7/ span 6;
+        grid-row: 4 / span 1;
+        width: 100%;
+        user-select: none;
+        @include flexbox(row);
+        @include text();
+        cursor: default;
     }
 }

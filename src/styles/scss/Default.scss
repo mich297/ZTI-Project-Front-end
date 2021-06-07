@@ -123,3 +123,8 @@ label {
 	height: fit-content;
 }
 
+.loader{
+	font-size: 2rem;
+	@include text();
+	@include flexbox(row);
+}

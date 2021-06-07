@@ -15,8 +15,8 @@ html {
 .button {
   padding: 1rem;
   font-size: 1rem;
-  color: #3500D3;
-  border-color: #3500D3;
+  color: #3b33b1;
+  border-color: #3b33b1;
   border-radius: 1rem;
   background-color: #080808;
   border-style: solid;
@@ -48,12 +48,12 @@ html {
   font-family: Helvetica;
   font-size: 1rem;
   background-color: #080808;
-  border-color: #3500D3;
+  border-color: #3b33b1;
   border-style: solid;
   padding: 1rem;
   border-radius: 1rem;
   text-align: center;
-  color: #3500D3;
+  color: #3b33b1;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -72,21 +72,21 @@ html {
   -webkit-user-select: none;
           user-select: none;
   text-align: center;
-  color: #3500D3;
+  color: #3b33b1;
 }
 
 .inputForm:-ms-input-placeholder {
   -ms-user-select: none;
       user-select: none;
   text-align: center;
-  color: #3500D3;
+  color: #3b33b1;
 }
 
 .inputForm::-ms-input-placeholder {
   -ms-user-select: none;
       user-select: none;
   text-align: center;
-  color: #3500D3;
+  color: #3b33b1;
 }
 
 .inputForm::placeholder {
@@ -95,7 +95,7 @@ html {
       -ms-user-select: none;
           user-select: none;
   text-align: center;
-  color: #3500D3;
+  color: #3b33b1;
 }
 
 .singleElementBox {
@@ -158,7 +158,7 @@ html {
 }
 
 p {
-  color: #3500D3;
+  color: #3b33b1;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -189,5 +189,28 @@ label {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.loader {
+  font-size: 2rem;
+  color: #3b33b1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 /*# sourceMappingURL=Default.css.map */

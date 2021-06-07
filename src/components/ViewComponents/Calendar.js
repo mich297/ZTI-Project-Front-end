@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EventIcon from "@material-ui/icons/Event";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -28,7 +26,6 @@ const Box = (props) => {
 
 const Calendar = (props) => {
   const [month, setMonth] = useState(actualDate()[1]);
-  const [day, setDay] = useState(actualDate()[0]);
   const [year, setYear] = useState(actualDate()[2]);
   let currentData = [...actualDate()];
 
@@ -58,7 +55,7 @@ const Calendar = (props) => {
         <div className="singleElementBox">
           <EventIcon />
         </div>
-        <h1>Upcoming</h1>
+        <h1>Kalendarz</h1>
       </div>
       <div className="monthHeader">
         <div className="singleElementBox">
@@ -75,6 +72,7 @@ const Calendar = (props) => {
       {dayPerMonth(month, year).map((singleDay) => (
         <Box
           day={singleDay}
+          key={singleDay + month + year}
           boxclass={specialDate(
             singleDay,
             month,

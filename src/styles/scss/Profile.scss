@@ -3,7 +3,7 @@
 .profileContainer{
     @include flexbox(column);
     background-color: black;
-    border: 1px solid $color-effect;
+    border: 1px solid $color-normal;
     grid-column: 4 / 10;
     grid-row: 4 / 13;
 
@@ -13,5 +13,9 @@
         input {
             margin: 2rem;
         }
+    }
+
+    h1{
+        margin: 2rem;
     }
 }

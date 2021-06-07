@@ -19,7 +19,7 @@ const SlidingMenu = (props) => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    localStorage.removeItem("permissions");
+    localStorage.removeItem("today");
     localStorage.removeItem("token");
     history.push("/");
   };
@@ -33,7 +33,7 @@ const SlidingMenu = (props) => {
         <div className="singleElementBox">
           <div onClick={handleLogout}>
             <ExitToAppIcon className="logout" />
-            <p>Logout</p>
+            <p>Wyloguj</p>
           </div>
         </div>
       </nav>

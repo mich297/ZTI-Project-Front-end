@@ -14,15 +14,15 @@
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  color: #3500D3;
-  fill: #3500D3;
+  color: #3b33b1;
+  fill: #3b33b1;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   height: 15rem;
   width: 15rem;
   border-radius: 50%;
-  border: 5px solid #3500D3;
+  border: 5px solid #3b33b1;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;

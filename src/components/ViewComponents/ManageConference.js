@@ -1,20 +1,16 @@
-import { userDataContext } from "./userDataContext.js";
 import { useEffect, useState } from "react";
 import "../../styles/css/Default.css";
 import "../../styles/css/Upcoming.css";
 import "../../styles/css/ManageConferences.css";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { useHistory } from "react-router";
-import DeleteIcon from "@material-ui/icons/Delete";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 
 const ManageConference = (props) => {
-  const [loading, setLoading] = useState(true);
   const [conferences, setConferences] = useState([]);
   let history = useHistory();
 
   useEffect(() => {
-    setLoading(true);
     let authorization = "Bearer " + localStorage.getItem("token");
     let myHeaders = new Headers();
     myHeaders.append("authorization", authorization);
@@ -38,7 +34,6 @@ const ManageConference = (props) => {
       })
       .then((data) => {
         setConferences(data);
-        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);

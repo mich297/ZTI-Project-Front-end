@@ -19,25 +19,25 @@ const Slider = (props) => {
       <div className={"optionTile"}>
         <div className="optionCircle" onClick={() => handleClick("signed")}>
           <BookmarksIcon className="icon" />
-          <p>Your conferences</p>
+          <p>Rejestrowana konferencja</p>
         </div>
       </div>
       <div className={"optionTile"}>
         <div className="optionCircle" onClick={() => handleClick("manage")}>
           <AddBoxIcon className="icon" />
-          <p>Manage conferences</p>
+          <p>Zarządzaj konferencjami</p>
         </div>
       </div>
       <div className={"optionTile"}>
         <div className="optionCircle" onClick={() => handleClick("all")}>
           <SearchIcon className="icon" />
-          <p>Find conference</p>
+          <p>Przeglądaj konferencje</p>
         </div>
       </div>
       <div className={"optionTile"}>
         <div className="optionCircle" onClick={() => handleClick("settings")}>
           <SettingsIcon className="icon" />
-          <p>Settings</p>
+          <p>Ustawienia</p>
         </div>
       </div>
     </div>

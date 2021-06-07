@@ -55,21 +55,21 @@
           justify-content: space-between;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-bottom: 1px solid #3500D3;
+  border-bottom: 1px solid #3b33b1;
   cursor: pointer;
 }
 
 #managementGrid #adminGrid .singleRowContainer div {
   font-size: 2rem;
-  color: #3500D3;
+  color: #3b33b1;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
 #managementGrid #adminGrid .singleRowContainer svg {
-  color: #3500D3;
-  fill: #3500D3;
+  color: #3b33b1;
+  fill: #3b33b1;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;

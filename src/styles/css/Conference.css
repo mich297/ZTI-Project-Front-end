@@ -35,9 +35,6 @@
   font-size: 3rem;
   background-color: black;
   border: 3px solid #c00433;
-  -webkit-box-shadow: 0 0.3rem 0.5rem #ff0062;
-          box-shadow: 0 0.3rem 0.5rem #ff0062;
-  border-bottom: none;
 }
 
 .conferenceGrid h1:nth-of-type(1) {
@@ -78,10 +75,9 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  border: 3px solid #c00433;
+  border: 3px solid #3b33b1;
   font-size: 1.5rem;
   border-top: 0px;
-  border-bottom: 0px;
   cursor: auto;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -89,8 +85,6 @@
           user-select: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-box-shadow: 0 0.3rem 0.5rem #ff0062;
-          box-shadow: 0 0.3rem 0.5rem #ff0062;
 }
 
 .conferenceGrid .conferenceInfo:nth-of-type(1) {
@@ -161,8 +155,116 @@
   -ms-grid-column: 7;
   -ms-grid-column-span: 6;
   grid-column: 7/ span 6;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 10;
+  grid-row: 5 / span 10;
+  overflow-y: scroll;
+}
+
+.conferenceGrid .panelContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.conferenceGrid .inputForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/ span 6;
   -ms-grid-row: 3;
-  -ms-grid-row-span: 12;
-  grid-row: 3 / span 12;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+}
+
+.conferenceGrid .singleRowContainer {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 40px;
+}
+
+.conferenceGrid .singleRowContainer .singleRowContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 2rem;
+}
+
+.conferenceGrid .singleRowContainer div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 2rem;
+  color: #3b33b1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.conferenceGrid #comm {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/ span 6;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4 / span 1;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: #3b33b1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  cursor: default;
 }
 /*# sourceMappingURL=Conference.css.map */

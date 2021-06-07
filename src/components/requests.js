@@ -1,5 +1,3 @@
-const url = "http://localhost:8080";
-
 async function postData(username, password) {
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -16,7 +14,7 @@ async function postData(username, password) {
     redirect: "follow",
   };
 
-  return fetch("http://localhost:8080/login", requestOptions)
+  return fetch("/login", requestOptions)
     .then((response) => {
       if (response.status === 500) throw Error(response.statusText);
       return response.text();
@@ -29,19 +27,21 @@ async function postData(username, password) {
     });
 }
 
-async function fetchAllConferences() {
-  fetch(url + "/conferences")
-    .then((res) => res.json())
-    .then((data) => {
-      return ["success", data];
-    })
-    .catch((error) => {
-      return ["error", error];
-    });
-}
-
-async function fetchUserConferences() {
-  fetch(url + "/conferences" + localStorage.getItem("id"))
+async function markPanel(scorePanel, id) {
+  let authorization = "Bearer " + localStorage.getItem("token");
+  let myHeaders = new Headers();
+  myHeaders.append("authorization", authorization);
+  myHeaders.append("Content-Type", "application/json");
+  let body = JSON.stringify({
+    score: scorePanel,
+  });
+  let requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: body,
+    redirect: "follow",
+  };
+  fetch("/panels/" + id, requestOptions)
     .then((res) => res.json())
     .then((data) => {
       return ["success", data];
@@ -114,4 +114,4 @@ async function changeAccData(data, value, confirm) {
     .catch((error) => console.log(error));
 }
 
-export { postData, fetchAllConferences, fetchUserConferences, changeAccData };
+export { postData, changeAccData, markPanel };

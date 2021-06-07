@@ -15,7 +15,7 @@
   -ms-flex-line-pack: center;
       align-content: center;
   background-color: black;
-  border: 1px solid #c00433;
+  border: 1px solid #3b33b1;
   -ms-grid-column: 4;
   -ms-grid-column-span: 6;
   grid-column: 4 / 10;
@@ -43,6 +43,10 @@
 }
 
 .profileContainer div input {
+  margin: 2rem;
+}
+
+.profileContainer h1 {
   margin: 2rem;
 }
 /*# sourceMappingURL=Profile.css.map */

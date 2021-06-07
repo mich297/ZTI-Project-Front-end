@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import "../styles/css/Default.css";
 import "../styles/css/Login.css";
-
-const RegisterForm = (props) => {
+import { actualDate } from "./Functions.js";
+const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -44,7 +44,7 @@ const RegisterForm = (props) => {
       .then((result) => {
         return result;
       })
-      .catch(() => setInvalid("Email/username already used!"));
+      .catch(() => setInvalid("Wpisane dane są zajęcte!"));
   };
 
   const handleSubmit = async (
@@ -76,7 +76,7 @@ const RegisterForm = (props) => {
       const response = fetchData(data);
       response.then((token) => {
         localStorage.setItem("user", username);
-        localStorage.setItem("permissions", "admin");
+        localStorage.setItem("today", actualDate()[0]);
         localStorage.setItem("token", token);
         history.push("/main");
       });
@@ -104,14 +104,14 @@ const RegisterForm = (props) => {
   function handleVerifyEmail() {
     let condition = email.match(emailTemplate);
     if (email === "") setCommunicate("");
-    else if (condition) setCommunicate("Email is correct!");
-    else setCommunicate("Invalid email!");
+    else if (condition) setCommunicate("Email jest poprawny!");
+    else setCommunicate("Nieprawidłowy email!");
   }
 
   return (
     <div id="loginContainer">
       <div className="loginRegisterForm">
-        <h1>Sign up</h1>
+        <h1>Rejestracja</h1>
         <div
           id="loginForm"
           autoComplete="off"
@@ -120,33 +120,42 @@ const RegisterForm = (props) => {
           <input
             type="textarea"
             className="inputForm"
-            placeholder="username"
+            placeholder="login"
             value={username}
             onChange={(e) => setUsername(e.currentTarget.value)}
           />
           <input
             type="textarea"
             className="inputForm"
-            placeholder="name"
+            placeholder="imie"
             value={name}
             onChange={(e) => setName(e.currentTarget.value)}
           />
           <input
             type="textarea"
             className="inputForm"
-            placeholder="surname"
+            placeholder="nazwisko"
             value={surname}
             onChange={(e) => setSurname(e.currentTarget.value)}
           />
           <input
             type="password"
             className="inputForm"
-            placeholder="password"
+            placeholder="hasło"
             value={password}
             onChange={(e) => setPassword(e.currentTarget.value)}
           />
           <label htmlFor="progressBar" className="progressLabel">
-            Password strength: <mark className={passStr}>{passStr}</mark>
+            Siła hasła:{" "}
+            <mark className={passStr}>
+              {passStr === "strong"
+                ? "silne"
+                : passStr === "medium"
+                ? "średnie"
+                : passStr === "low"
+                ? "słabe"
+                : "żadna"}
+            </mark>
           </label>
           <div className="progressBar">
             <div
@@ -169,7 +178,7 @@ const RegisterForm = (props) => {
             type="password"
             id="confirmPass"
             className="inputForm"
-            placeholder="confirm password"
+            placeholder="potwierdź hasło"
             value={confirm}
             onChange={(e) => setConfirm(e.currentTarget.value)}
           ></input>
@@ -177,8 +186,8 @@ const RegisterForm = (props) => {
             {matchLabel === null
               ? ""
               : matchLabel === false
-              ? "Passwords don't match"
-              : "Passwords match"}
+              ? "Hasła się nie zgadzają!"
+              : "Hasła się zgadzają"}
           </label>
           <input
             type="email"
@@ -198,7 +207,7 @@ const RegisterForm = (props) => {
               handleSubmit(username, password, email, confirm, name, surname)
             }
           >
-            Submit
+            Rejestruj
           </button>
         </div>
         <p>{userInvalid}</p>
@@ -207,7 +216,7 @@ const RegisterForm = (props) => {
             history.push("/");
           }}
         >
-          Back
+          Cofnij
         </p>
       </div>
     </div>

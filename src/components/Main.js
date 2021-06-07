@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../styles//css/Default.css";
 import "../styles/css/Main.css";
@@ -11,27 +11,23 @@ import SlidingMenu from "./SlidingMenuComponents/SlidingMenu";
 import Conference from "./Conference.js";
 import Statistics from "./Statistics.js";
 
-const fetchConferenceData = async () => {
-  const data = await fetch("http://localhost3333", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-};
-
-const fetchUserData = async () => {};
-
 const Main = () => {
-  const [iconStyle, setIconStyle] = useState("icon");
-  const permissions = useState(localStorage.getItem("permissions"));
   const [content, setContent] = useState("upcoming");
   const [conf, setConf] = useState();
   let history = useHistory();
 
+  const actualDate = () => {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+    return [dd, mm, yyyy];
+  };
+
   const loggedInUser = localStorage.getItem("user");
-  if (!loggedInUser) {
+  const isStillValid = localStorage.getItem("today") === `${actualDate()[0]}`;
+
+  if (!loggedInUser || !isStillValid) {
     history.push("/");
   }
 
@@ -43,6 +39,10 @@ const Main = () => {
   const confStats = (confObject) => {
     setConf(confObject);
     setContent("statistics");
+  };
+
+  const backFromConference = () => {
+    setContent("upcoming");
   };
   let visibleContent =
     content === "signed" ? (
@@ -58,7 +58,7 @@ const Main = () => {
     ) : content === "manage" ? (
       <ManageConference showStats={(confObject) => confStats(confObject)} />
     ) : content === "conference" ? (
-      <Conference conference={conf} />
+      <Conference conference={conf} back={() => backFromConference()} />
     ) : content === "statistics" ? (
       <Statistics conference={conf} />
     ) : (
@@ -69,7 +69,9 @@ const Main = () => {
     <div className="menuGrid">
       <div className="title">
         <div className="title">
-          <h1 onClick={() => setContent("upcoming")}>Conference App</h1>
+          <h1 onClick={() => setContent("upcoming")}>
+            Aplikacja Konferencyjna
+          </h1>
         </div>
       </div>
       <SlidingMenu viewChange={(contentOption) => setContent(contentOption)} />

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "../styles/css/Default.css";
 import "../styles/css/Login.css";
 import LoginForm from "./LoginForm.js";
 
-const Login = (props) => {
+const Login = () => {
   let history = useHistory();
 
   function useLogin() {
